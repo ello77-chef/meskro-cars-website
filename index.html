@@ -14,7 +14,7 @@
   <nav class="top-nav" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="Meskro-Logo.png" alt="Meskro Cars" height="36">
+        <img src="Meskro-Logo.png" alt="Meskro Cars">
       </a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
@@ -31,16 +31,21 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-image" style="background-image: url('C63 Front.jpg');"></div>
+    <div class="hero-image" style="background-image: url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg');"></div>
     <div class="hero-overlay"></div>
+    <div class="hero-red-line"></div>
     <div class="hero-content">
       <span class="caption-uppercase hero-label">Wien, 1220 — Luxusautovermietung</span>
       <h1 class="display-mega">Fahre das<br>Außergewöhnliche.</h1>
-      <p class="hero-sub">Exklusive Luxuslimousinen und Sportwagen für jeden Anlass.</p>
+      <p class="hero-sub">Exklusive Luxuslimousinen und Sportwagen für jeden Anlass in Wien.</p>
       <div class="hero-actions">
         <a href="fahrzeuge.html" class="btn-primary">Flotte entdecken</a>
         <a href="kontakt.html" class="btn-outline-dark">Anfrage senden</a>
       </div>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
@@ -48,22 +53,22 @@
   <section class="stats-band">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number">10+</span>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="10" data-suffix="+">10+</span>
           <span class="stat-label">Fahrzeuge</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-1">
           <span class="stat-number">24/7</span>
           <span class="stat-label">Erreichbar</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-2">
           <span class="stat-number">Wien</span>
           <span class="stat-label">1220</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-3">
           <span class="stat-number">100%</span>
           <span class="stat-label">Exklusiv</span>
         </div>
@@ -74,14 +79,16 @@
   <!-- Feature Section -->
   <section class="section-dark">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="caption-uppercase section-eyebrow">Unsere Flotte</span>
         <h2 class="display-lg">Ikonen auf vier Rädern.</h2>
         <p class="body-text">Von kraftvollen AMG-Sportwagen bis zur eleganten Luxuslimousine — unsere Flotte vereint Leistung und Prestige.</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-card-img" style="background-image: url('C36 Seite.jpg');"></div>
+          <div class="feature-card-img-wrap">
+            <div class="feature-card-img" style="background-image: url('images/Mercedes C63S Cabrio/730533244_18436369060121191_2293554877020868084_n.jpg');"></div>
+          </div>
           <div class="feature-card-body">
             <span class="caption-uppercase">Sport</span>
             <h3 class="title-md">Mercedes C63S AMG Cabrio</h3>
@@ -90,7 +97,9 @@
           </div>
         </div>
         <div class="feature-card">
-          <div class="feature-card-img" style="background-image: url('G63.jpg');"></div>
+          <div class="feature-card-img-wrap">
+            <div class="feature-card-img" style="background-image: url('images/Mercedes G63 AMG/730623068_18436766968121191_5168284035923994149_n.jpg');"></div>
+          </div>
           <div class="feature-card-body">
             <span class="caption-uppercase">SUV</span>
             <h3 class="title-md">Mercedes G63 AMG</h3>
@@ -99,20 +108,18 @@
           </div>
         </div>
         <div class="feature-card">
-          <div class="feature-card-img feature-card-img--dark">
-            <div class="car-placeholder">
-              <span class="car-placeholder-text">Audi R8</span>
-            </div>
+          <div class="feature-card-img-wrap">
+            <div class="feature-card-img" style="background-image: url('images/Mercedes GLE450d/648594168_18418685185121191_5848811198251804296_n.jpg');"></div>
           </div>
           <div class="feature-card-body">
-            <span class="caption-uppercase">Supersport</span>
-            <h3 class="title-md">Audi R8 Cabrio</h3>
-            <p class="body-sm-muted">570 PS. Mittelmotor. Reine Emotion.</p>
+            <span class="caption-uppercase">SUV</span>
+            <h3 class="title-md">Mercedes GLE 450d</h3>
+            <p class="body-sm-muted">367 PS. Eleganz trifft Stärke.</p>
             <a href="fahrzeuge.html" class="btn-text">Mehr erfahren →</a>
           </div>
         </div>
       </div>
-      <div class="section-cta-row">
+      <div class="section-cta-row reveal">
         <a href="fahrzeuge.html" class="btn-outline-dark">Alle Fahrzeuge ansehen</a>
       </div>
     </div>
@@ -121,15 +128,15 @@
   <!-- Red CTA Band -->
   <section class="red-band">
     <div class="container red-band-inner">
-      <h2 class="display-lg">Ihr nächstes Erlebnis wartet.</h2>
-      <a href="kontakt.html" class="btn-white">Jetzt anfragen</a>
+      <h2 class="display-lg reveal">Ihr nächstes Erlebnis wartet.</h2>
+      <a href="kontakt.html" class="btn-white reveal reveal-delay-2">Jetzt anfragen</a>
     </div>
   </section>
 
   <!-- Why Us -->
   <section class="section-dark">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="caption-uppercase section-eyebrow">Warum Meskro Cars</span>
         <h2 class="display-lg">Perfektion ist kein Zufall.</h2>
       </div>

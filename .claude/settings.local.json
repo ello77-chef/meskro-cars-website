@@ -10,7 +10,19 @@
       "Bash(git init *)",
       "Bash(git add *)",
       "Bash(git rm *)",
-      "Bash(git commit -m 'Initial commit: Meskro Cars website *)"
+      "Bash(git commit -m 'Initial commit: Meskro Cars website *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "mcp__Claude_Preview__preview_start",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/samuelkessler/.nvm/versions/**)",
+      "mcp__Claude_in_Chrome__navigate",
+      "Bash(cp \"car-Images:/Mercedes C63S Cabrio/\"*.jpg \"images/Mercedes C63S Cabrio/\")",
+      "Bash(cp \"car-Images:/Mercedes G63 AMG/\"*.jpg \"images/Mercedes G63 AMG/\")",
+      "Bash(cp \"car-Images:/Mercedes GLE450d/\"*.jpg \"images/Mercedes GLE450d/\")",
+      "Bash(cp \"car-Images:/Mercedes S400/\"*.jpg \"images/Mercedes S400/\")",
+      "Bash(cp \"car-Images:/BMW M5 F90/\"*.jpg \"images/BMW M5 F90/\")",
+      "Bash(git commit *)"
     ]
   }
 }
