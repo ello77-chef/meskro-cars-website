@@ -1366,3 +1366,57 @@ a.contact-info-item:hover {
   background: #fff;
   width: 40px;
 }
+
+/* ── Instagram Footer Link ── */
+.footer-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--body);
+  transition: color 0.2s;
+}
+.footer-ig:hover { color: #fff; }
+.footer-ig svg { flex-shrink: 0; }
+
+/* ── Floating Instagram Button ── */
+.ig-float {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18,18,18,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 10px 16px 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.ig-float:hover {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(30,30,30,0.97);
+  transform: translateY(-2px);
+}
+.ig-float svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.ig-float-label { white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .ig-float { padding: 10px 14px; }
+  .ig-float-label { display: none; }
+  .ig-float { border-radius: 50%; width: 48px; height: 48px; justify-content: center; }
+}

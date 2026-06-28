@@ -123,5 +123,10 @@
     function changeLightbox(dir){current=(current+dir+imgs.length)%imgs.length;document.getElementById('lightbox-img').src=imgs[current];}
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changeLightbox(-1);if(e.key==='ArrowRight')changeLightbox(1);});
   </script>
+  <!-- Instagram Float -->
+  <a href="https://www.instagram.com/meskro.cars/" class="ig-float" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    <span class="ig-float-label">Instagram</span>
+  </a>
 </body>
 </html>
