@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ello77-chef.github.io/meskro-cars-website/sitemap.xml
