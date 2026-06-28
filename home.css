@@ -643,3 +643,30 @@
   .ad-cars-row { grid-template-columns: 1fr 1fr; }
   .ad-about-stats { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Service accordion fix ── */
+.ad-service-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+.ad-service-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--body);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease, padding 0.3s ease;
+  opacity: 0;
+  padding: 0 0 0 44px;
+}
+.ad-service-item.open .ad-service-body {
+  max-height: 200px;
+  opacity: 1;
+  padding: 14px 0 4px 44px;
+}
+
+/* Car cards — pointer cursor always visible */
+.ad-car-card { cursor: pointer; }
