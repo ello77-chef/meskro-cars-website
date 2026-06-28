@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercedes S400 — Meskro Cars</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="car-page.css">
+</head>
+<body>
+  <nav class="top-nav scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Meskro-Logo.png" alt="Meskro Cars"></a>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="fahrzeuge.html" class="nav-link active">Fahrzeuge</a></li>
+        <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        <li><a href="kontakt.html" class="btn-primary nav-cta">Anfrage</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="car-hero">
+    <div class="car-hero-img" style="background-image: url('images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="car-hero-content">
+      <a href="fahrzeuge.html" class="car-back-link">← Alle Fahrzeuge</a>
+      <span class="badge-pill">Limousine</span>
+      <h1 class="display-xl">Mercedes<br>S400</h1>
+    </div>
+  </section>
+  <section class="car-specs-bar"><div class="container"><div class="car-specs-row">
+    <div class="car-spec"><span class="spec-value">333</span><span class="spec-label">PS</span></div>
+    <div class="car-spec-divider"></div>
+    <div class="car-spec"><span class="spec-value">5.5</span><span class="spec-label">0–100 Sek.</span></div>
+    <div class="car-spec-divider"></div>
+    <div class="car-spec"><span class="spec-value">250</span><span class="spec-label">km/h</span></div>
+    <div class="car-spec-divider"></div>
+    <div class="car-spec"><span class="spec-value">3.0L</span><span class="spec-label">V6 Hybrid</span></div>
+    <div class="car-spec-divider"></div>
+    <div class="car-spec"><span class="spec-value">Limousine</span><span class="spec-label">Karosserie</span></div>
+  </div></div></section>
+  <section class="car-detail section-dark"><div class="container"><div class="car-detail-grid">
+    <div class="car-detail-text reveal">
+      <span class="caption-uppercase section-eyebrow">Das Fahrzeug</span>
+      <h2 class="display-lg">Die Kunst des Reisens.</h2>
+      <p class="body-text">Die Mercedes S-Klasse ist seit Jahrzehnten der Inbegriff automobiler Luxus. Das S400 vereint modernste Technik mit einer Üppigkeit, die ihresgleichen sucht — handvernähtes Leder, aktive Massagesitze, Sternenhimmel-Ambientelicht und eine Stille im Innenraum, die an ein Privatflugzeug erinnert.</p>
+      <p class="body-text">Ob als Fahrzeug für Geschäftsleute, als Hochzeitsauto oder für besondere Anlässe — die S-Klasse macht jeden Moment zu einem Ereignis. Der Fahrer wird verwöhnt, die Passagiere noch mehr.</p>
+      <p class="body-text">Reisen auf dem höchsten Niveau der Automobilkunst.</p>
+      <a href="kontakt.html" class="btn-primary" style="margin-top: 16px;">Jetzt anfragen</a>
+    </div>
+    <div class="car-detail-features reveal reveal-delay-2">
+      <h3 class="title-md" style="margin-bottom: 24px;">Highlights</h3>
+      <ul class="car-features-list">
+        <li>3,0L V6 Hybrid — 333 PS</li>
+        <li>4MATIC Allradantrieb</li>
+        <li>Aktive Luftfederung</li>
+        <li>Massagesitze vorne & hinten</li>
+        <li>Burmester 3D Soundsystem</li>
+        <li>Ambientelicht 64 Farben</li>
+        <li>Executive Rear Seat Paket</li>
+        <li>9G-TRONIC Automatik</li>
+      </ul>
+    </div>
+  </div></div></section>
+  <section class="car-gallery section-dark" style="padding-top:0;"><div class="container">
+    <h2 class="display-md reveal" style="margin-bottom:32px;">Galerie</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item--large" onclick="openLightbox(0)"><img src="images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg" alt="Mercedes S400"></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="images/Mercedes S400/546225196_18390588628121191_114114571930861470_n.jpg" alt="Mercedes S400"></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="images/Mercedes S400/547851186_18390588637121191_439693310145583918_n.jpg" alt="Mercedes S400"></div>
+    </div>
+  </div></section>
+  <section class="red-band"><div class="container red-band-inner">
+    <h2 class="display-lg">Bereit für das Erlebnis?</h2>
+    <p class="red-band-sub">Kontaktiere uns — wir reservieren den Wagen für dich.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <a href="kontakt.html" class="btn-white">Anfrage senden</a>
+      <a href="https://wa.me/436601077755" class="btn-outline-dark" style="border-color:rgba(255,255,255,0.5);color:#fff;" target="_blank">WhatsApp</a>
+    </div>
+  </div></section>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="Meskro-Logo.png" alt="Meskro Cars" height="28" class="footer-logo"><p class="footer-tagline">Luxusautovermietung Wien</p></div><div class="footer-col"><h4 class="footer-heading">Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Fahrzeuge</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div><div class="footer-col"><h4 class="footer-heading">Kontakt</h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div><div class="footer-col"><h4 class="footer-heading">Rechtliches</h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></div></div></footer>
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close" onclick="closeLightbox()">✕</button><button class="lightbox-prev" onclick="event.stopPropagation();changeLightbox(-1)">‹</button><img class="lightbox-img" id="lightbox-img" src="" alt=""><button class="lightbox-next" onclick="event.stopPropagation();changeLightbox(1)">›</button></div>
+  <script src="main.js"></script>
+  <script>
+    const imgs=['images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg','images/Mercedes S400/546225196_18390588628121191_114114571930861470_n.jpg','images/Mercedes S400/547851186_18390588637121191_439693310145583918_n.jpg'];
+    let current=0;
+    function openLightbox(i){current=i;document.getElementById('lightbox-img').src=imgs[i];document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';}
+    function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
+    function changeLightbox(dir){current=(current+dir+imgs.length)%imgs.length;document.getElementById('lightbox-img').src=imgs[current];}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changeLightbox(-1);if(e.key==='ArrowRight')changeLightbox(1);});
+  </script>
+</body>
+</html>

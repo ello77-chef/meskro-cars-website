@@ -22,7 +22,9 @@
       "Bash(cp \"car-Images:/Mercedes GLE450d/\"*.jpg \"images/Mercedes GLE450d/\")",
       "Bash(cp \"car-Images:/Mercedes S400/\"*.jpg \"images/Mercedes S400/\")",
       "Bash(cp \"car-Images:/BMW M5 F90/\"*.jpg \"images/BMW M5 F90/\")",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(sed -i '' -e 's|<div class=\"fleet-card\" data-category=\"sport\">\\\\n.*Mercedes C63S AMG Cabrio|X|' fahrzeuge.html)",
+      "Bash(python3 -)"
     ]
   }
 }
