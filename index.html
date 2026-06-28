@@ -95,7 +95,7 @@
 
       <!-- Big showcase car -->
       <div class="ad-showcase">
-        <div class="ad-showcase-car" id="showcase-car">
+        <div class="ad-showcase-car" id="showcase-car" data-href="mercedes-c63s-cabrio.html">
           <img src="images/Mercedes G63 AMG/730623068_18436766968121191_5168284035923994149_n.jpg" alt="G63 AMG" id="showcase-img">
         </div>
         <div class="ad-showcase-meta" id="showcase-meta">
@@ -357,23 +357,28 @@
 
   <script src="main.js"></script>
   <script>
-  // Car cards → hover updates showcase, click navigates
+  // Car cards (red area) → click/hover switches showcase, does NOT navigate
+  function activateCard(card) {
+    document.querySelector('.ad-car-card.active')?.classList.remove('active');
+    card.classList.add('active');
+    const si = document.getElementById('showcase-img');
+    si.style.opacity = '0';
+    setTimeout(() => { si.src = card.dataset.img; si.style.opacity = '1'; }, 200);
+    document.getElementById('showcase-meta').innerHTML =
+      `<span class="ad-showcase-name">${card.dataset.name}</span><span class="ad-showcase-badge">${card.dataset.badge}</span>`;
+    // update showcase link
+    document.getElementById('showcase-car').dataset.href = card.dataset.href;
+  }
   document.querySelectorAll('.ad-car-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      const img  = card.dataset.img;
-      const name = card.dataset.name;
-      const badge= card.dataset.badge;
-      document.querySelector('.ad-car-card.active')?.classList.remove('active');
-      card.classList.add('active');
-      const si = document.getElementById('showcase-img');
-      si.style.opacity = '0';
-      setTimeout(() => { si.src = img; si.style.opacity = '1'; }, 200);
-      document.getElementById('showcase-meta').innerHTML =
-        `<span class="ad-showcase-name">${name}</span><span class="ad-showcase-badge">${badge}</span>`;
-    });
-    card.addEventListener('click', () => {
-      window.location.href = card.dataset.href;
-    });
+    card.addEventListener('click', () => activateCard(card));
+    card.addEventListener('mouseenter', () => activateCard(card));
+  });
+
+  // Showcase (yellow area) → click navigates to car page
+  document.getElementById('showcase-car').style.cursor = 'pointer';
+  document.getElementById('showcase-car').addEventListener('click', () => {
+    const href = document.getElementById('showcase-car').dataset.href;
+    if (href) window.location.href = href;
   });
 
   // Filter tabs
