@@ -76,51 +76,78 @@
     </div>
   </section>
 
-  <!-- Feature Section -->
-  <section class="section-dark">
+  <!-- Card Stack Section -->
+  <section class="section-dark card-stack-section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="caption-uppercase section-eyebrow">Unsere Flotte</span>
-        <h2 class="display-lg">Ikonen auf vier Rädern.</h2>
-        <p class="body-text">Von kraftvollen AMG-Sportwagen bis zur eleganten Luxuslimousine — unsere Flotte vereint Leistung und Prestige.</p>
+      <div class="card-stack-layout">
+
+        <!-- Left: Info Panel -->
+        <div class="card-stack-info">
+          <span class="caption-uppercase section-eyebrow">Unsere Flotte</span>
+          <h2 class="display-lg" id="stack-title">Mercedes C63S AMG Cabrio</h2>
+          <p class="body-text" id="stack-desc">510 PS V8 Biturbo. Elektrisches Cabriodach. Der AMG, der keine Fragen offen lässt.</p>
+          <div class="stack-specs" id="stack-specs">
+            <div class="stack-spec"><span class="stack-spec-val">510</span><span class="stack-spec-lbl">PS</span></div>
+            <div class="stack-spec"><span class="stack-spec-val">4.0</span><span class="stack-spec-lbl">0–100</span></div>
+            <div class="stack-spec"><span class="stack-spec-val">V8</span><span class="stack-spec-lbl">Motor</span></div>
+          </div>
+          <div class="stack-actions">
+            <a href="mercedes-c63s-cabrio.html" class="btn-primary" id="stack-link">Fahrzeug entdecken</a>
+            <div class="stack-nav">
+              <button class="stack-btn-prev" id="stack-prev" aria-label="Zurück">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+              </button>
+              <span class="stack-counter"><span id="stack-current">1</span> / <span id="stack-total">8</span></span>
+              <button class="stack-btn-next" id="stack-next" aria-label="Weiter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stacked Cards -->
+        <div class="card-stack-wrap">
+          <div class="card-stack" id="card-stack">
+            <div class="stack-card" data-index="0" data-href="mercedes-c63s-cabrio.html">
+              <div class="stack-card-img" style="background-image:url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg')"></div>
+              <div class="stack-card-label"><span>Sport</span></div>
+            </div>
+            <div class="stack-card" data-index="1" data-href="mercedes-g63.html">
+              <div class="stack-card-img" style="background-image:url('images/Mercedes G63 AMG/730623068_18436766968121191_5168284035923994149_n.jpg')"></div>
+              <div class="stack-card-label"><span>SUV</span></div>
+            </div>
+            <div class="stack-card" data-index="2" data-href="mercedes-gle450d.html">
+              <div class="stack-card-img" style="background-image:url('images/Mercedes GLE450d/648594168_18418685185121191_5848811198251804296_n.jpg')"></div>
+              <div class="stack-card-label"><span>SUV</span></div>
+            </div>
+            <div class="stack-card" data-index="3" data-href="mercedes-s400.html">
+              <div class="stack-card-img" style="background-image:url('images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg')"></div>
+              <div class="stack-card-label"><span>Limousine</span></div>
+            </div>
+            <div class="stack-card" data-index="4" data-href="bmw-m5.html">
+              <div class="stack-card-img" style="background-image:url('images/BMW M5 F90/484278285_18366860209121191_756175195284917977_n.jpg')"></div>
+              <div class="stack-card-label"><span>Sport</span></div>
+            </div>
+            <div class="stack-card" data-index="5" data-href="mercedes-c200.html">
+              <div class="stack-card-img" style="background-image:url('images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg')"></div>
+              <div class="stack-card-label"><span>Limousine</span></div>
+            </div>
+            <div class="stack-card" data-index="6" data-href="audi-r8.html">
+              <div class="stack-card-img stack-card-img--dark"><span>Audi R8</span></div>
+              <div class="stack-card-label"><span>Supersport</span></div>
+            </div>
+            <div class="stack-card" data-index="7" data-href="bmw-m4.html">
+              <div class="stack-card-img stack-card-img--dark"><span>BMW M4</span></div>
+              <div class="stack-card-label"><span>Sport</span></div>
+            </div>
+          </div>
+          <!-- Swipe hint -->
+          <p class="stack-hint">← Klicken zum Durchblättern →</p>
+        </div>
+
       </div>
-      <div class="feature-grid">
-        <div class="feature-card" onclick="location.href='mercedes-c63s-cabrio.html'" style="cursor:pointer;">
-          <div class="feature-card-img-wrap">
-            <div class="feature-card-img" style="background-image: url('images/Mercedes C63S Cabrio/730533244_18436369060121191_2293554877020868084_n.jpg');"></div>
-          </div>
-          <div class="feature-card-body">
-            <span class="caption-uppercase">Sport</span>
-            <h3 class="title-md">Mercedes C63S AMG Cabrio</h3>
-            <p class="body-sm-muted">510 PS. Offen. Ungestüm.</p>
-            <a href="mercedes-c63s-cabrio.html" class="btn-text">Mehr erfahren →</a>
-          </div>
-        </div>
-        <div class="feature-card" onclick="location.href='mercedes-g63.html'" style="cursor:pointer;">
-          <div class="feature-card-img-wrap">
-            <div class="feature-card-img" style="background-image: url('images/Mercedes G63 AMG/730623068_18436766968121191_5168284035923994149_n.jpg');"></div>
-          </div>
-          <div class="feature-card-body">
-            <span class="caption-uppercase">SUV</span>
-            <h3 class="title-md">Mercedes G63 AMG</h3>
-            <p class="body-sm-muted">585 PS. Dominanz in jeder Form.</p>
-            <a href="mercedes-g63.html" class="btn-text">Mehr erfahren →</a>
-          </div>
-        </div>
-        <div class="feature-card" onclick="location.href='mercedes-gle450d.html'" style="cursor:pointer;">
-          <div class="feature-card-img-wrap">
-            <div class="feature-card-img" style="background-image: url('images/Mercedes GLE450d/648594168_18418685185121191_5848811198251804296_n.jpg');"></div>
-          </div>
-          <div class="feature-card-body">
-            <span class="caption-uppercase">SUV</span>
-            <h3 class="title-md">Mercedes GLE 450d</h3>
-            <p class="body-sm-muted">367 PS. Eleganz trifft Stärke.</p>
-            <a href="mercedes-gle450d.html" class="btn-text">Mehr erfahren →</a>
-          </div>
-        </div>
-      </div>
-      <div class="section-cta-row reveal">
-        <a href="fahrzeuge.html" class="btn-outline-dark">Alle Fahrzeuge ansehen</a>
+      <div class="section-cta-row reveal" style="margin-top:64px;">
+        <a href="fahrzeuge.html" class="btn-outline-dark">Alle 10 Fahrzeuge ansehen</a>
       </div>
     </div>
   </section>

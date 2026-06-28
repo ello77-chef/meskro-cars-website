@@ -160,3 +160,116 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+/* ── Card Stack ── */
+(function () {
+  const stackEl = document.getElementById('card-stack');
+  if (!stackEl) return;
+
+  const cards = Array.from(stackEl.querySelectorAll('.stack-card'));
+  const total = cards.length;
+  let current = 0;
+  let animating = false;
+
+  const data = [
+    { title: 'Mercedes C63S AMG Cabrio', desc: '510 PS V8 Biturbo. Elektrisches Cabriodach. Der AMG, der keine Fragen offen lässt.', ps: '510', time: '4.0', motor: 'V8', href: 'mercedes-c63s-cabrio.html' },
+    { title: 'Mercedes G63 AMG',         desc: '585 PS. Ikonisches Kastendesign. Das Status-Symbol auf vier Rädern — überall.', ps: '585', time: '4.5', motor: 'V8', href: 'mercedes-g63.html' },
+    { title: 'Mercedes GLE 450d',        desc: '367 PS Diesel. 7 Sitze. Luftfederung. Der SUV für alle Lebenslagen.', ps: '367', time: '5.5', motor: 'V6D', href: 'mercedes-gle450d.html' },
+    { title: 'Mercedes S400',            desc: '333 PS Hybrid. Massagesitze. Burmester Sound. Die Kunst des Reisens.', ps: '333', time: '5.5', motor: 'V6H', href: 'mercedes-s400.html' },
+    { title: 'BMW M5 F90',               desc: '600 PS V8 Biturbo. 3,4 Sek. auf 100. Die schnellste Limousine der Flotte.', ps: '600', time: '3.4', motor: 'V8', href: 'bmw-m5.html' },
+    { title: 'Mercedes C200',            desc: '204 PS Mild-Hybrid. Elegantes Auftreten. Der stilvolle Alltagsbegleiter.', ps: '204', time: '7.3', motor: '1.5T', href: 'mercedes-c200.html' },
+    { title: 'Audi R8 Spyder',           desc: '570 PS V10 Saugmotor. Quattro. Das reinste Fahrerlebnis mit offenem Verdeck.', ps: '570', time: '3.5', motor: 'V10', href: 'audi-r8.html' },
+    { title: 'BMW M4',                   desc: '530 PS Reihensechszylinder. Hinterradantrieb. Fahren als Kunst.', ps: '530', time: '3.5', motor: 'R6T', href: 'bmw-m4.html' },
+  ];
+
+  function updatePositions(dir) {
+    cards.forEach((c, i) => {
+      c.classList.remove('is-top', 'is-second', 'is-third', 'fly-left', 'fly-right');
+    });
+
+    // Position relative to current
+    cards.forEach((c, i) => {
+      const rel = ((i - current) % total + total) % total;
+      if (rel === 0) c.classList.add('is-top');
+      else if (rel === 1) c.classList.add('is-second');
+      else if (rel === 2) c.classList.add('is-third');
+      // rest stay hidden (no class)
+    });
+  }
+
+  function updateInfo() {
+    const d = data[current];
+    const titleEl = document.getElementById('stack-title');
+    const descEl  = document.getElementById('stack-desc');
+    const specsEl = document.getElementById('stack-specs');
+    const linkEl  = document.getElementById('stack-link');
+    const curEl   = document.getElementById('stack-current');
+
+    // Fade out
+    titleEl.classList.add('changing');
+    specsEl.classList.add('changing');
+
+    setTimeout(() => {
+      titleEl.textContent = d.title;
+      descEl.textContent  = d.desc;
+      specsEl.innerHTML = `
+        <div class="stack-spec"><span class="stack-spec-val">${d.ps}</span><span class="stack-spec-lbl">PS</span></div>
+        <div class="stack-spec"><span class="stack-spec-val">${d.time}</span><span class="stack-spec-lbl">0–100</span></div>
+        <div class="stack-spec"><span class="stack-spec-val">${d.motor}</span><span class="stack-spec-lbl">Motor</span></div>
+      `;
+      linkEl.href = d.href;
+      curEl.textContent = current + 1;
+      titleEl.classList.remove('changing');
+      specsEl.classList.remove('changing');
+    }, 200);
+  }
+
+  function advance(dir) {
+    if (animating) return;
+    animating = true;
+
+    const topCard = cards[current];
+
+    // Fly out the top card
+    topCard.classList.add(dir > 0 ? 'fly-left' : 'fly-right');
+
+    setTimeout(() => {
+      current = ((current + dir) % total + total) % total;
+      updatePositions(dir);
+      updateInfo();
+      setTimeout(() => { animating = false; }, 100);
+    }, 380);
+  }
+
+  // Init
+  document.getElementById('stack-total').textContent = total;
+  updatePositions(0);
+  updateInfo();
+
+  // Buttons
+  document.getElementById('stack-next').addEventListener('click', () => advance(1));
+  document.getElementById('stack-prev').addEventListener('click', () => advance(-1));
+
+  // Click top card → go to page
+  stackEl.addEventListener('click', (e) => {
+    if (animating) return;
+    const top = stackEl.querySelector('.is-top');
+    if (top && !e.target.closest('button')) {
+      window.location.href = data[current].href;
+    }
+  });
+
+  // Touch/drag swipe on stack
+  let startX = 0;
+  stackEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  stackEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) advance(dx < 0 ? 1 : -1);
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') advance(1);
+    if (e.key === 'ArrowLeft')  advance(-1);
+  });
+})();
