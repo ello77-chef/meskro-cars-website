@@ -1253,3 +1253,116 @@ a.contact-info-item:hover {
   .card-stack { height: 300px; }
   .stack-spec-val { font-size: 22px; }
 }
+
+/* ── CTA Carousel Band ── */
+.cta-carousel-band {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-slides { position: absolute; inset: 0; }
+
+.cta-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.2s ease, transform 6s ease;
+}
+.cta-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,10,0.55) 0%,
+    rgba(10,10,10,0.72) 100%
+  );
+  z-index: 1;
+}
+
+.cta-carousel-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta-carousel-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.cta-carousel-title {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: #fff;
+}
+
+.cta-carousel-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.cta-carousel-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.cta-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0 24px;
+  height: 48px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cta-wa-btn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+.cta-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.cta-dot {
+  width: 24px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.3s, width 0.3s;
+  cursor: default;
+}
+.cta-dot.active {
+  background: #fff;
+  width: 40px;
+}
