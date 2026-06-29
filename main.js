@@ -114,10 +114,19 @@ if (adHero && stickyCta) {
 const fahrzeugeVideo = document.getElementById('fahrzeuge-hero-video');
 const fahrzeugeHeroBg = document.getElementById('fahrzeuge-hero-bg');
 if (fahrzeugeVideo && fahrzeugeHeroBg) {
-  fahrzeugeVideo.addEventListener('ended', () => {
+  let fahrzeugeTransitioned = false;
+  function fahrzeugeStartTransition() {
+    if (fahrzeugeTransitioned) return;
+    fahrzeugeTransitioned = true;
     fahrzeugeVideo.classList.add('fade-out');
     fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  }
+  fahrzeugeVideo.addEventListener('timeupdate', () => {
+    if (fahrzeugeVideo.duration && fahrzeugeVideo.currentTime >= fahrzeugeVideo.duration - 0.8) {
+      fahrzeugeStartTransition();
+    }
   });
+  fahrzeugeVideo.addEventListener('ended', fahrzeugeStartTransition);
   fahrzeugeVideo.addEventListener('error', () => {
     fahrzeugeVideo.style.display = 'none';
     fahrzeugeHeroBg.classList.add('visible', 'loaded');
@@ -133,16 +142,23 @@ if (fahrzeugeVideo && fahrzeugeHeroBg) {
 const heroVideo  = document.getElementById('hero-video');
 const heroBgImg  = document.getElementById('hero-bg-img');
 if (heroVideo && heroBgImg) {
-  heroVideo.addEventListener('ended', () => {
+  let heroTransitioned = false;
+  function heroStartTransition() {
+    if (heroTransitioned) return;
+    heroTransitioned = true;
     heroVideo.classList.add('fade-out');
     heroBgImg.classList.add('visible', 'loaded');
+  }
+  heroVideo.addEventListener('timeupdate', () => {
+    if (heroVideo.duration && heroVideo.currentTime >= heroVideo.duration - 0.8) {
+      heroStartTransition();
+    }
   });
-  // Fallback: if video fails to load, show image immediately
+  heroVideo.addEventListener('ended', heroStartTransition);
   heroVideo.addEventListener('error', () => {
     heroVideo.style.display = 'none';
     heroBgImg.classList.add('visible', 'loaded');
   });
-  // Fallback: if autoplay is blocked (some browsers), show image immediately
   const playPromise = heroVideo.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {

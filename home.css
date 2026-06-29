@@ -150,6 +150,7 @@
   will-change: transform, opacity;
   z-index: 0;
 }
+.ad-hero-bg.video-target { opacity: 0; }
 .ad-hero-bg.loaded { transform: scale(1); }
 .ad-hero-bg.visible { opacity: 1 !important; }
 
