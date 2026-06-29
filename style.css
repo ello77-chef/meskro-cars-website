@@ -1527,6 +1527,8 @@ a.contact-info-item:hover {
 .mobile-sticky-cta.visible { transform: translateY(0); }
 /* Sticky CTA hinter dem Nav-Menü verstecken wenn Menü offen */
 body.nav-open .mobile-sticky-cta { transform: translateY(100%) !important; }
+/* Navbar above the menu overlay so hamburger/X stays clickable */
+body.nav-open #navbar { z-index: 10000; }
 
 @media (max-width: 768px) {
   .mobile-sticky-cta { display: flex; }
