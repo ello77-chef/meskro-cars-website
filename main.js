@@ -29,9 +29,12 @@ function animateHero() {
   document.querySelectorAll('.hero-line-inner').forEach(el => {
     el.classList.add('visible');
   });
-  // Trigger counter for hero stats after fade-in completes (1s delay + 1s duration = 2s)
+  // Trigger hero stat counters manually — bypasses IntersectionObserver entirely
   setTimeout(() => {
-    document.querySelectorAll('.ad-hero-stats [data-target]').forEach(el => countUp(el));
+    const fahrzeuge = document.getElementById('hero-stat-fahrzeuge');
+    const erreichbar = document.getElementById('hero-stat-erreichbar');
+    if (fahrzeuge) countUpDirect(fahrzeuge, 10, '+');
+    if (erreichbar) countUpDirect(erreichbar, 24, '/7');
   }, 2200);
 }
 window.addEventListener('load', () => setTimeout(animateHero, 80));
@@ -137,11 +140,9 @@ if (window.innerWidth > 768) {
 }
 
 /* ── Number count-up animation ── */
-function countUp(el) {
-  const target = parseInt(el.dataset.target, 10);
-  if (!target) return;
-  const suffix = el.dataset.suffix || '';
-  const duration = 1400;
+function countUpDirect(el, target, suffix, duration) {
+  duration = duration || 1400;
+  el.textContent = '0' + suffix;
   const start = performance.now();
   const update = (now) => {
     const progress = Math.min((now - start) / duration, 1);
@@ -150,6 +151,12 @@ function countUp(el) {
     if (progress < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
+}
+
+function countUp(el) {
+  const target = parseInt(el.dataset.target, 10);
+  if (!target) return;
+  countUpDirect(el, target, el.dataset.suffix || '');
 }
 
 const countObserver = new IntersectionObserver((entries) => {
@@ -161,9 +168,7 @@ const countObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('[data-target]').forEach(el => {
-  if (!el.closest('.ad-hero-stats')) countObserver.observe(el);
-});
+document.querySelectorAll('[data-target]').forEach(el => countObserver.observe(el));
 
 /* ── Contact form ── */
 const form        = document.getElementById('contact-form');
