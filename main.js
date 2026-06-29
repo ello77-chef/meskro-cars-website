@@ -7,40 +7,22 @@ onScroll();
 /* ── Hamburger ── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('nav-links');
-let navOpen = false;
-let navCloseTimer = null;
-
-function openNav() {
-  if (navOpen) return;
-  navOpen = true;
-  clearTimeout(navCloseTimer);
-  hamburger.classList.add('open');
-  document.body.classList.add('nav-open');
-  document.body.style.overflow = 'hidden';
-  navLinks.classList.add('nav-animating');
-  // Double rAF: ensure display:flex is painted before adding .open for transition
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      navLinks.classList.add('open');
-    });
-  });
-}
 
 function closeNav() {
-  if (!navOpen) return;
-  navOpen = false;
   hamburger.classList.remove('open');
-  document.body.classList.remove('nav-open');
-  document.body.style.overflow = '';
   navLinks.classList.remove('open');
-  // Wait for transition to finish before hiding
-  navCloseTimer = setTimeout(() => {
-    navLinks.classList.remove('nav-animating');
-  }, 340);
+  document.body.classList.remove('nav-open');
 }
 
 hamburger?.addEventListener('click', () => {
-  if (navOpen) closeNav(); else openNav();
+  const opening = !navLinks.classList.contains('open');
+  if (opening) {
+    hamburger.classList.add('open');
+    navLinks.classList.add('open');
+    document.body.classList.add('nav-open');
+  } else {
+    closeNav();
+  }
 });
 
 navLinks?.querySelectorAll('a').forEach(link => {
