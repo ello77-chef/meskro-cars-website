@@ -161,7 +161,9 @@ const countObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('[data-target]').forEach(el => countObserver.observe(el));
+document.querySelectorAll('[data-target]').forEach(el => {
+  if (!el.closest('.ad-hero-stats')) countObserver.observe(el);
+});
 
 /* ── Contact form ── */
 const form        = document.getElementById('contact-form');
