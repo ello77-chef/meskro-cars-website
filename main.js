@@ -110,6 +110,25 @@ if (adHero && stickyCta) {
   ctaObs.observe(adHero);
 }
 
+/* ── Fahrzeuge page hero video → image transition ── */
+const fahrzeugeVideo = document.getElementById('fahrzeuge-hero-video');
+const fahrzeugeHeroBg = document.getElementById('fahrzeuge-hero-bg');
+if (fahrzeugeVideo && fahrzeugeHeroBg) {
+  fahrzeugeVideo.addEventListener('ended', () => {
+    fahrzeugeVideo.classList.add('fade-out');
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+  fahrzeugeVideo.addEventListener('error', () => {
+    fahrzeugeVideo.style.display = 'none';
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+  const p = fahrzeugeVideo.play();
+  if (p !== undefined) p.catch(() => {
+    fahrzeugeVideo.style.display = 'none';
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+}
+
 /* ── Hero video → image transition ── */
 const heroVideo  = document.getElementById('hero-video');
 const heroBgImg  = document.getElementById('hero-bg-img');

@@ -45,7 +45,13 @@
   </nav>
 
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('images/Mercedes C63S Cabrio/730598595_18436369051121191_7630459111662827999_n.jpg');"></div>
+    <!-- Video layer — plays first, then fades out -->
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;">
+      <video class="page-hero-video" id="fahrzeuge-hero-video" autoplay muted playsinline>
+        <source src="videos/fahrzeuge-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="page-hero-bg" id="fahrzeuge-hero-bg" style="background-image: url('car-images/audi-rsq8/2.jpeg'); background-position: center 35%; opacity:0;"></div>
     <div class="hero-overlay"></div>
     <div class="page-hero-content">
       <span class="caption-uppercase hero-label">Unsere Flotte</span>
