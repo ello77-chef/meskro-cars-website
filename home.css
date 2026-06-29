@@ -117,12 +117,27 @@
    HERO
 ══════════════════════ */
 .ad-hero {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 0;
   height: 100vh;
   min-height: 680px;
   overflow: hidden;
   display: flex;
   align-items: stretch;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+#hero-scroll-spacer {
+  height: 150vh;
 }
 
 .ad-hero-video {
