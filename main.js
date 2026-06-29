@@ -71,6 +71,26 @@ if (heroBg) {
   }, { passive: true });
 }
 
+/* ── Hero "Scroll Down" click — scrolls to fleet section ── */
+const heroScrollEl = document.querySelector('.ad-hero-scroll');
+const fleetSection = document.getElementById('fleet-section');
+if (heroScrollEl && fleetSection) {
+  heroScrollEl.style.cursor = 'pointer';
+  heroScrollEl.addEventListener('click', () => {
+    fleetSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+/* ── Sticky Mobile CTA — appears after hero scrolls out ── */
+const adHero = document.querySelector('.ad-hero');
+const stickyCta = document.getElementById('mobile-sticky-cta');
+if (adHero && stickyCta) {
+  const ctaObs = new IntersectionObserver(([entry]) => {
+    stickyCta.classList.toggle('visible', !entry.isIntersecting);
+  }, { threshold: 0 });
+  ctaObs.observe(adHero);
+}
+
 /* ── Hero image scale-in ── */
 const heroImage = document.querySelector('.hero-image');
 if (heroImage) {

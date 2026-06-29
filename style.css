@@ -1451,6 +1451,73 @@ a.contact-info-item:hover {
   .ig-float { border-radius: 50%; width: 48px; height: 48px; justify-content: center; }
 }
 
+/* ── WhatsApp Floating Button ── */
+.wa-float {
+  position: fixed;
+  right: 24px;
+  bottom: 88px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18,18,18,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 10px 16px 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.wa-float:hover {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(30,30,30,0.97);
+  transform: translateY(-2px);
+}
+.wa-float svg { flex-shrink: 0; }
+.wa-float-label { white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .wa-float { padding: 10px 14px; border-radius: 50%; width: 48px; height: 48px; justify-content: center; bottom: 92px; }
+  .wa-float-label { display: none; }
+}
+
+/* ── Sticky Mobile CTA ── */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(18,18,18,0.97);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.mobile-sticky-cta .btn-primary { width: 100%; justify-content: center; }
+.mobile-sticky-cta.visible { transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta { display: flex; }
+}
+
+/* ── Car Card Price Tag ── */
+.ad-car-card-price {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
 /* ── Magnetic Button ── */
 .mag-btn-active {
   will-change: transform;
