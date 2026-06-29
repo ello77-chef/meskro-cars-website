@@ -1,3 +1,13 @@
+/* ── Lenis smooth scroll ── */
+if (typeof Lenis !== 'undefined') {
+  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  function lenisRaf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(lenisRaf);
+  }
+  requestAnimationFrame(lenisRaf);
+}
+
 /* ── Nav scroll ── */
 const navbar = document.getElementById('navbar');
 const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 60);
