@@ -7,19 +7,44 @@ onScroll();
 /* ── Hamburger ── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('nav-links');
-hamburger?.addEventListener('click', () => {
-  const open = hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open', open);
-  document.body.classList.toggle('nav-open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-navLinks?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-    document.body.classList.remove('nav-open');
-    document.body.style.overflow = '';
+let navOpen = false;
+let navCloseTimer = null;
+
+function openNav() {
+  if (navOpen) return;
+  navOpen = true;
+  clearTimeout(navCloseTimer);
+  hamburger.classList.add('open');
+  document.body.classList.add('nav-open');
+  document.body.style.overflow = 'hidden';
+  navLinks.classList.add('nav-animating');
+  // Double rAF: ensure display:flex is painted before adding .open for transition
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      navLinks.classList.add('open');
+    });
   });
+}
+
+function closeNav() {
+  if (!navOpen) return;
+  navOpen = false;
+  hamburger.classList.remove('open');
+  document.body.classList.remove('nav-open');
+  document.body.style.overflow = '';
+  navLinks.classList.remove('open');
+  // Wait for transition to finish before hiding
+  navCloseTimer = setTimeout(() => {
+    navLinks.classList.remove('nav-animating');
+  }, 340);
+}
+
+hamburger?.addEventListener('click', () => {
+  if (navOpen) closeNav(); else openNav();
+});
+
+navLinks?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeNav);
 });
 
 /* ── Hero entrance animations ── */

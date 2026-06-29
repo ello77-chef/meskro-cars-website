@@ -992,41 +992,33 @@ a.contact-info-item:hover {
 @media (max-width: 768px) {
   .nav-hamburger { display: flex; }
 
-  /* Mobile nav — animiert mit opacity + transform statt display:none */
+  /* Mobile nav — JS toggles display, CSS handles opacity/transform transition */
   .nav-links {
-    display: flex;
+    display: none;
     position: fixed;
-    top: 72px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10,10,10,0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: #0a0a0a;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
-    padding: 8px 0 48px;
-    z-index: 201;
+    padding-top: 72px;
+    padding-bottom: 48px;
+    z-index: 9999;
     overflow-y: auto;
-    /* Eingeklappt: unsichtbar, verschoben */
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-12px);
-    pointer-events: none;
-    transition: opacity 0.32s var(--ease-out),
-                transform 0.32s var(--ease-out),
-                visibility 0s linear 0.32s;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .nav-links.nav-animating {
+    display: flex;
   }
   .nav-links.open {
     opacity: 1;
-    visibility: visible;
     transform: translateY(0);
-    pointer-events: all;
-    transition: opacity 0.32s var(--ease-out),
-                transform 0.32s var(--ease-out),
-                visibility 0s linear 0s;
   }
 
   /* Staggered Einblenden der Menüpunkte */
@@ -1034,7 +1026,7 @@ a.contact-info-item:hover {
     border-bottom: 1px solid rgba(255,255,255,0.07);
     opacity: 0;
     transform: translateX(-18px);
-    transition: opacity 0.28s var(--ease-out), transform 0.28s var(--ease-out);
+    transition: opacity 0.28s ease, transform 0.28s ease;
   }
   .nav-links li:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
   .nav-links.open li { opacity: 1; transform: translateX(0); }
