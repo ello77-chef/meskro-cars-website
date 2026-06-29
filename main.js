@@ -110,6 +110,21 @@ if (adHero && stickyCta) {
   ctaObs.observe(adHero);
 }
 
+/* ── Hero video → image transition ── */
+const heroVideo  = document.getElementById('hero-video');
+const heroBgImg  = document.getElementById('hero-bg-img');
+if (heroVideo && heroBgImg) {
+  heroVideo.addEventListener('ended', () => {
+    heroVideo.classList.add('fade-out');
+    heroBgImg.classList.add('visible', 'loaded');
+  });
+  // Fallback: if video fails to load, show image immediately
+  heroVideo.addEventListener('error', () => {
+    heroVideo.style.display = 'none';
+    heroBgImg.classList.add('visible', 'loaded');
+  });
+}
+
 /* ── Hero image scale-in ── */
 const heroImage = document.querySelector('.hero-image');
 if (heroImage) {

@@ -78,7 +78,11 @@
 
   <!-- ══ HERO ══ -->
   <section class="ad-hero">
-    <div class="ad-hero-bg" style="background-image:url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg');"></div>
+    <!-- Video layer — plays first, then fades out -->
+    <video class="ad-hero-video" id="hero-video" autoplay muted playsinline>
+      <source src="videos/c63-felge-hero.mp4" type="video/mp4">
+    </video>
+    <div class="ad-hero-bg" id="hero-bg-img" style="background-image:url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg'); opacity:0;"></div>
     <div class="ad-hero-overlay"></div>
 
     <!-- Grid lines -->

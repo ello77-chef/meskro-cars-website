@@ -125,20 +125,36 @@
   align-items: stretch;
 }
 
+.ad-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transition: opacity 1.4s ease;
+  z-index: 0;
+}
+.ad-hero-video.fade-out { opacity: 0; }
+
 .ad-hero-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center 40%;
   transform: scale(1.06);
-  transition: transform 2.2s cubic-bezier(0.16,1,0.3,1), opacity 0.1s linear;
+  transition: transform 2.2s cubic-bezier(0.16,1,0.3,1), opacity 1.4s ease;
   will-change: transform, opacity;
+  z-index: 0;
 }
 .ad-hero-bg.loaded { transform: scale(1); }
+.ad-hero-bg.visible { opacity: 1 !important; }
 
 .ad-hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     135deg,
     rgba(10,10,10,0.88) 0%,
