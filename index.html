@@ -451,6 +451,8 @@
       document.querySelector('.ad-tab.active').classList.remove('active');
       tab.classList.add('active');
       const filter = tab.dataset.filter;
+      // Scroll back to fleet section so user sees the filtered result
+      document.getElementById('fleet-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
       document.querySelectorAll('.ad-car-card').forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
         card.style.display = match ? '' : 'none';

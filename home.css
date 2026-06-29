@@ -517,7 +517,11 @@
   border-top: 1px solid rgba(255,255,255,0.07);
   padding-top: 20px;
   margin-top: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.ad-filter-tabs::-webkit-scrollbar { display: none; }
 .ad-tab {
   font-size: 10px;
   font-weight: 700;
@@ -530,6 +534,7 @@
   cursor: pointer;
   transition: color 0.2s;
   position: relative;
+  flex-shrink: 0;
 }
 .ad-tab::after {
   content: '';
