@@ -121,6 +121,12 @@
   position: relative;
 }
 
+#main-content {
+  position: relative;
+  z-index: 1;
+  background: var(--canvas);
+}
+
 .ad-hero {
   position: sticky;
   top: 0;
