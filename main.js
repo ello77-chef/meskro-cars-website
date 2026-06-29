@@ -25,10 +25,26 @@ function animateHero() {
   document.querySelectorAll('.hero-label, .hero-content h1, .hero-sub, .hero-actions, .hero-scroll, .hero-red-line').forEach(el => {
     el.classList.add('animate');
   });
-  // Staggered line reveal for ad-hero
-  document.querySelectorAll('.hero-line-inner').forEach(el => {
-    el.classList.add('visible');
+
+  // Character-by-character reveal for hero title
+  let globalCharIdx = 0;
+  const BASE_DELAY  = 300;  // ms before first char
+  const CHAR_STEP   = 38;   // ms between each char
+
+  document.querySelectorAll('.hero-line-inner').forEach(lineEl => {
+    const text = lineEl.textContent;
+    lineEl.innerHTML = '';
+    Array.from(text).forEach(ch => {
+      const span = document.createElement('span');
+      span.className = 'hero-char';
+      span.textContent = ch === ' ' ? ' ' : ch;
+      lineEl.appendChild(span);
+      const delay = BASE_DELAY + globalCharIdx * CHAR_STEP;
+      setTimeout(() => span.classList.add('visible'), delay);
+      if (ch !== ' ') globalCharIdx++;
+    });
   });
+
   // Trigger hero stat counters manually — bypasses IntersectionObserver entirely
   setTimeout(() => {
     const fahrzeuge = document.getElementById('hero-stat-fahrzeuge');
