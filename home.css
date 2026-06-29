@@ -108,8 +108,8 @@
   background-size: cover;
   background-position: center 40%;
   transform: scale(1.06);
-  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
+  transition: transform 2.2s cubic-bezier(0.16,1,0.3,1), opacity 0.1s linear;
+  will-change: transform, opacity;
 }
 .ad-hero-bg.loaded { transform: scale(1); }
 
@@ -143,13 +143,50 @@
   letter-spacing: -2.5px;
   color: #fff;
   max-width: 700px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroFadeUp 1s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
 }
+
+/* Zeile-für-Zeile Stagger via span.hero-line */
+.hero-line {
+  display: block;
+  overflow: hidden;
+}
+.hero-line-inner {
+  display: block;
+  opacity: 0;
+  transform: translateY(40px) skewY(1.5deg);
+  transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1),
+              transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.hero-line-inner.visible { opacity: 1; transform: translateY(0) skewY(0deg); }
+.hero-line:nth-child(1) .hero-line-inner { transition-delay: 0.1s; }
+.hero-line:nth-child(2) .hero-line-inner { transition-delay: 0.28s; }
+.hero-line:nth-child(3) .hero-line-inner { transition-delay: 0.46s; }
+.hero-line:nth-child(4) .hero-line-inner { transition-delay: 0.64s; }
 
 @keyframes heroFadeUp {
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow label bove title */
+.ad-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.ad-hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--primary);
 }
 
 .ad-hero-stats {
@@ -157,7 +194,7 @@
   align-items: center;
   gap: 0;
   opacity: 0;
-  animation: heroFadeUp 0.8s 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+  animation: heroFadeUp 1s 1s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .ad-stat {
   display: flex;
@@ -517,51 +554,117 @@
   flex-direction: column;
   padding-top: 60px;
 }
+
 .ad-service-item {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+.ad-service-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+/* Hover-fill Background */
+.ad-service-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(218,41,28,0.04);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+  z-index: 0;
+}
+.ad-service-item:hover::before { transform: scaleX(1); }
+
+/* Red left accent bar */
+.ad-service-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index: 1;
+}
+.ad-service-item:hover::after { transform: scaleY(1); }
+
+.ad-service-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  cursor: pointer;
-  transition: border-color 0.2s;
+  width: 100%;
+  padding: 28px 0 28px 20px;
+  position: relative;
+  z-index: 2;
 }
-.ad-service-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-.ad-service-item:hover { border-color: rgba(255,255,255,0.18); }
-.ad-service-num-title { display: flex; align-items: center; gap: 20px; }
+
+.ad-service-num-title { display: flex; align-items: center; gap: 28px; }
+
 .ad-service-num {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--muted);
+  color: var(--primary);
   min-width: 24px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
 }
+.ad-service-item:hover .ad-service-num { opacity: 1; }
+
 .ad-service-title {
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 22px);
   font-weight: 500;
-  color: #fff;
-  transition: color 0.2s;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: -0.2px;
+  transition: color 0.3s, letter-spacing 0.4s;
 }
-.ad-service-item:hover .ad-service-title { color: rgba(255,255,255,0.75); }
+.ad-service-item:hover .ad-service-title {
+  color: #fff;
+  letter-spacing: 0.1px;
+}
+
+/* Arrow icon replaces + button */
 .ad-service-plus {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255,255,255,0.15);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,0.1);
   background: transparent;
-  color: rgba(255,255,255,0.5);
-  font-size: 20px;
+  color: rgba(255,255,255,0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, transform 0.3s;
+  transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.45s cubic-bezier(0.16,1,0.3,1);
   flex-shrink: 0;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+}
+.ad-service-item:hover .ad-service-plus {
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
 }
 .ad-service-item.open .ad-service-plus {
   border-color: var(--primary);
   color: var(--primary);
+  background: rgba(218,41,28,0.08);
   transform: rotate(45deg);
 }
+
+/* Accordion body */
+.ad-service-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--body);
+  padding: 0 0 24px 72px;
+  position: relative;
+  z-index: 2;
+}
+
 .ad-services-cta { padding-top: 32px; }
 
 /* ══════════════════════

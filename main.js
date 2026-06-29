@@ -25,8 +25,28 @@ function animateHero() {
   document.querySelectorAll('.hero-label, .hero-content h1, .hero-sub, .hero-actions, .hero-scroll, .hero-red-line').forEach(el => {
     el.classList.add('animate');
   });
+  // Staggered line reveal for ad-hero
+  document.querySelectorAll('.hero-line-inner').forEach(el => {
+    el.classList.add('visible');
+  });
 }
-window.addEventListener('load', () => setTimeout(animateHero, 100));
+window.addEventListener('load', () => setTimeout(animateHero, 80));
+
+/* ── Hero scroll parallax + fade ── */
+const heroBg = document.querySelector('.ad-hero-bg');
+if (heroBg) {
+  const heroSection = heroBg.closest('.ad-hero');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroH = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    const progress = Math.min(scrolled / heroH, 1);
+    // Scale up from 1 → 1.12, opacity 1 → 0.35
+    const scale = 1 + progress * 0.12;
+    const opacity = 1 - progress * 0.65;
+    heroBg.style.transform = `scale(${scale})`;
+    heroBg.style.opacity = opacity;
+  }, { passive: true });
+}
 
 /* ── Hero image scale-in ── */
 const heroImage = document.querySelector('.hero-image');
