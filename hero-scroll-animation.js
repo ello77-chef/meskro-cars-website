@@ -29,7 +29,7 @@
 (function () {
   'use strict';
 
-  const FRAME_COUNT   = 84;
+  const FRAME_COUNT   = 75;
   const FRAME_PATH    = 'images/hero-sequence/frame_%04d.webp';
   const POSTER_PATH   = 'images/hero-sequence/poster.webp';
   // Background colour of the section immediately below the spacer (#181818 = --canvas)
