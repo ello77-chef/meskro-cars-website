@@ -46,19 +46,20 @@
       <a href="index.html" class="nav-logo"><img src="MESKRO.png" alt="Meskro Cars"></a>
       <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="fahrzeuge.html" class="nav-link active">Alle Modelle</a></li>
-        <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
-        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
-        <li><a href="kontakt.html" class="btn-primary nav-cta">Anfragen ↗</a></li>
+        <li><a href="index.html" class="nav-link"><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="fahrzeuge.html" class="nav-link active"><span data-i18n="nav.modelle">Alle Modelle</span></a></li>
+        <li><a href="ueber-uns.html" class="nav-link"><span data-i18n="nav.ueber">Über uns</span></a></li>
+        <li><a href="kontakt.html" class="nav-link"><span data-i18n="nav.kontakt">Kontakt</span></a></li>
+        <li><a href="kontakt.html" class="btn-primary nav-cta"><span data-i18n="nav.anfragen">Anfragen ↗</span></a></li>
       </ul>
-    </div>
+          <button id="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+      </div>
   </nav>
   <section class="car-hero">
     <div class="car-hero-img" style="background-image: url('images/Mercedes GLE450d/1.jpg');"></div>
     <div class="hero-overlay"></div>
     <div class="car-hero-content">
-      <a href="fahrzeuge.html" class="car-back-link">← Alle Fahrzeuge</a>
+      <a href="fahrzeuge.html" class="car-back-link"><span data-i18n="car.back">← Alle Fahrzeuge</span></a>
       <span class="badge-pill">SUV</span>
       <h1 class="display-xl">Mercedes<br>GLE 450d</h1>
     </div>
@@ -76,15 +77,15 @@
   </div></div></section>
   <section class="car-detail section-dark"><div class="container"><div class="car-detail-grid">
     <div class="car-detail-text reveal">
-      <span class="caption-uppercase section-eyebrow">Das Fahrzeug</span>
+      <span class="caption-uppercase section-eyebrow"><span data-i18n="gle.eye">Das Fahrzeug</span></span>
       <h2 class="display-lg">Eleganz trifft Stärke.</h2>
       <p class="body-text">Der Mercedes GLE 450d vereint das Beste zweier Welten: die Vielseitigkeit eines Premium-SUVs mit der Effizienz und dem Drehmoment eines modernen Dieselmotors. 900 Nm Drehmoment ermöglichen souveränes Gleiten — ob im Stadtverkehr oder auf der Autobahn.</p>
       <p class="body-text">Mit bis zu 7 Sitzen, luftgefedertem 4MATIC+-Allradantrieb und einem aufwendig abgestimmten Fahrwerk bietet der GLE Reiskomfort auf höchstem Niveau. Das Interieur ist großzügig, luxuriös und technologisch auf dem neuesten Stand.</p>
       <p class="body-text">Ideal für Familienausflüge, Geschäftsreisen oder wenn man einfach mehr Platz und Komfort braucht — ohne auf Stil zu verzichten.</p>
-      <a href="kontakt.html" class="btn-primary" style="margin-top: 16px;">Jetzt anfragen</a>
+      <a href="kontakt.html" class="btn-primary" style="margin-top: 16px;"><span data-i18n="car.anfragen">Jetzt anfragen</span></a>
     </div>
     <div class="car-detail-features reveal reveal-delay-2">
-      <h3 class="title-md" style="margin-bottom: 24px;">Highlights</h3>
+      <h3 class="title-md" style="margin-bottom: 24px;"><span data-i18n="car.highlights">Highlights</span></h3>
       <ul class="car-features-list">
         <li>3,0L 6-Zylinder Diesel — 367 PS</li>
         <li>4MATIC+ Allradantrieb</li>
@@ -98,7 +99,7 @@
     </div>
   </div></div></section>
   <section class="car-gallery section-dark" style="padding-top:0;"><div class="container">
-    <h2 class="display-md reveal" style="margin-bottom:32px;">Galerie</h2>
+    <h2 class="display-md reveal" style="margin-bottom:32px;"><span data-i18n="car.galerie">Galerie</span></h2>
     <div class="gallery-grid">
       <div class="gallery-item gallery-item--large" onclick="openLightbox(0)"><img src="images/Mercedes GLE450d/1.jpg" alt="GLE 450d"></div>
       <div class="gallery-item" onclick="openLightbox(1)"><img src="images/Mercedes GLE450d/2.jpg" alt="GLE 450d"></div>
@@ -109,8 +110,8 @@
     <section class="weitere-modelle">
     <div class="container">
       <div class="weitere-modelle-header">
-        <span class="weitere-modelle-title">Weitere Modelle entdecken</span>
-        <a class="weitere-modelle-link" href="fahrzeuge.html">Alle ansehen ↗</a>
+        <span class="weitere-modelle-title"><span data-i18n="cta.alle.modelle">Weitere Modelle entdecken</span></span>
+        <a class="weitere-modelle-link" href="fahrzeuge.html"><span data-i18n="cta.alle.ansehen">Alle ansehen ↗</span></a>
       </div>
       <div class="weitere-modelle-row">
         <a class="weitere-modelle-card" href="mercedes-c63s-cabrio.html">
@@ -156,17 +157,17 @@
     <div class="container">
       <div class="car-cta-bottom-inner">
         <div class="car-cta-bottom-text">
-          <h2>Bereit für dein Traumauto?</h2>
-          <p>Kontaktiere uns — persönlich, schnell und unverbindlich.</p>
+          <h2><span data-i18n="cta.traumauto.h2">Bereit für dein Traumauto?</span></h2>
+          <p><span data-i18n="cta.traumauto.p">Kontaktiere uns — persönlich, schnell und unverbindlich.</span></p>
         </div>
         <div class="car-cta-bottom-actions">
-          <a href="kontakt.html" class="mag-btn-red">Jetzt anfragen ↗</a>
-          <a href="https://wa.me/436601077755" class="mag-btn-ghost" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="kontakt.html" class="mag-btn-red"><span data-i18n="cta.anfragen">Jetzt anfragen ↗</span></a>
+          <a href="https://wa.me/436601077755" class="mag-btn-ghost" target="_blank" rel="noopener"><span data-i18n="cta.whatsapp">WhatsApp</span></a>
         </div>
       </div>
     </div>
   </section>
-  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo"><p class="footer-tagline">Luxusautovermietung Wien</p></div><div class="footer-col"><h4 class="footer-heading">Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div><div class="footer-col"><h4 class="footer-heading">Kontakt</h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div><div class="footer-col"><h4 class="footer-heading">Rechtliches</h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo"><p class="footer-tagline"><span data-i18n="footer.tagline">Luxusautovermietung Wien</span></p></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.nav">Navigation</span></h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.kontakt">Kontakt</span></h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.legal">Rechtliches</span></h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div></div><div class="footer-bottom"><span><span data-i18n="footer.copy">© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></span></div></div></footer>
   <div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close" onclick="closeLightbox()">✕</button><button class="lightbox-prev" onclick="event.stopPropagation();changeLightbox(-1)">‹</button><img class="lightbox-img" id="lightbox-img" src="" alt=""><button class="lightbox-next" onclick="event.stopPropagation();changeLightbox(1)">›</button></div>
   <script src="main.js"></script>
   <script>
@@ -189,7 +190,8 @@
   </a>
   <!-- Sticky Mobile CTA -->
   <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+    <a href="kontakt.html" class="btn-primary"><span data-i18n="cta.mobile">Jetzt anfragen</span></a>
   </div>
+  <script src="i18n.js"></script>
 </body>
 </html>

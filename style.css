@@ -254,6 +254,26 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-left: var(--sp-sm);
 }
 
+/* ── Language Toggle ── */
+#lang-toggle {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.65);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 11px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+#lang-toggle:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+
 /* Hamburger */
 .nav-hamburger {
   display: none;
@@ -1218,6 +1238,10 @@ a.contact-info-item:hover {
   .nav-link:hover, .nav-link.active { color: #fff; padding-left: 36px; }
   .nav-link::after { display: none; }
   .nav-links li:last-child { border-bottom: none; padding: 20px 28px 0; }
+  #lang-toggle {
+    margin-left: 0;
+    margin-right: 12px;
+  }
   .nav-cta {
     display: flex;
     width: calc(100% - 56px);

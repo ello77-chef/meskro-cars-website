@@ -46,19 +46,20 @@
       <a href="index.html" class="nav-logo"><img src="MESKRO.png" alt="Meskro Cars"></a>
       <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="fahrzeuge.html" class="nav-link active">Alle Modelle</a></li>
-        <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
-        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
-        <li><a href="kontakt.html" class="btn-primary nav-cta">Anfragen ↗</a></li>
+        <li><a href="index.html" class="nav-link"><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="fahrzeuge.html" class="nav-link active"><span data-i18n="nav.modelle">Alle Modelle</span></a></li>
+        <li><a href="ueber-uns.html" class="nav-link"><span data-i18n="nav.ueber">Über uns</span></a></li>
+        <li><a href="kontakt.html" class="nav-link"><span data-i18n="nav.kontakt">Kontakt</span></a></li>
+        <li><a href="kontakt.html" class="btn-primary nav-cta"><span data-i18n="nav.anfragen">Anfragen ↗</span></a></li>
       </ul>
-    </div>
+          <button id="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+      </div>
   </nav>
   <section class="car-hero" style="background:#181818;">
     <div class="car-hero-img" style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);"></div>
     <div class="hero-overlay" style="background:linear-gradient(to top,rgba(18,18,18,0.98) 0%,rgba(18,18,18,0.4) 100%);"></div>
     <div class="car-hero-content">
-      <a href="fahrzeuge.html" class="car-back-link">← Alle Fahrzeuge</a>
+      <a href="fahrzeuge.html" class="car-back-link"><span data-i18n="car.back">← Alle Fahrzeuge</span></a>
       <span class="badge-pill">Sport</span>
       <h1 class="display-xl">BMW M4</h1>
     </div>
@@ -72,7 +73,7 @@
     <div class="car-spec-divider"></div>
     <div class="car-spec"><span class="spec-value">3.0L</span><span class="spec-label">Biturbo</span></div>
     <div class="car-spec-divider"></div>
-    <div class="car-spec"><span class="spec-value">Sport</span><span class="spec-label">Karosserie</span></div>
+    <div class="car-spec"><span class="spec-value">Sport</span><span class="spec-label"><span data-i18n="car.karosserie">Karosserie</span></span></div>
   </div></div></section>
   <section class="car-detail section-dark"><div class="container"><div class="car-detail-grid">
     <div class="car-detail-text reveal">
@@ -81,10 +82,10 @@
       <p class="body-text">Der BMW M4 ist die reinste Form des Sportwagens im Kompaktsegment. 530 PS aus einem 3,0-Liter-Reihensechszylinder-Biturbo, Hinterradantrieb für maximale Dynamik und ein Design, das keine Fragen offen lässt.</p>
       <p class="body-text">Auf kurvenreichen Straßen entfaltet der M4 sein volles Potential: präzises Lenken, neutrales Handling und eine Gasannahme, die jeden Fahrspaß steigert. Auf der Autobahn verschwindet er in der Ferne.</p>
       <p class="body-text">Für alle, die Fahren als Kunst verstehen.</p>
-      <a href="kontakt.html" class="btn-primary" style="margin-top:16px;">Jetzt anfragen</a>
+      <a href="kontakt.html" class="btn-primary" style="margin-top:16px;"><span data-i18n="car.anfragen">Jetzt anfragen</span></a>
     </div>
     <div class="car-detail-features reveal reveal-delay-2">
-      <h3 class="title-md" style="margin-bottom:24px;">Highlights</h3>
+      <h3 class="title-md" style="margin-bottom:24px;"><span data-i18n="car.highlights">Highlights</span></h3>
       <ul class="car-features-list">
         <li>3,0L Reihensechszylinder Biturbo — 530 PS</li><li>Hinterradantrieb</li><li>8-Gang M Steptronic</li><li>Adaptives M Fahrwerk</li>
         <li>M Carbon Bremsanlage</li><li>M Sport Sperrdifferenzial</li><li>Harman Kardon Sound</li><li>Carbon Dach</li>
@@ -92,7 +93,7 @@
     </div>
   </div></div></section>
   <section class="car-gallery section-dark" style="padding-top:0;"><div class="container">
-    <h2 class="display-md reveal" style="margin-bottom:32px;">Galerie</h2>
+    <h2 class="display-md reveal" style="margin-bottom:32px;"><span data-i18n="car.galerie">Galerie</span></h2>
     <div class="gallery-grid">
       <div class="gallery-placeholder gallery-placeholder--large">Fotos folgen in Kürze</div>
       <div class="gallery-placeholder">—</div>
@@ -107,7 +108,7 @@
       <a href="https://wa.me/436601077755" class="btn-outline-dark" style="border-color:rgba(255,255,255,0.5);color:#fff;" target="_blank">WhatsApp</a>
     </div>
   </div></section>
-  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo"><p class="footer-tagline">Luxusautovermietung Wien</p></div><div class="footer-col"><h4 class="footer-heading">Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div><div class="footer-col"><h4 class="footer-heading">Kontakt</h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div><div class="footer-col"><h4 class="footer-heading">Rechtliches</h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo"><p class="footer-tagline"><span data-i18n="footer.tagline">Luxusautovermietung Wien</span></p></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.nav">Navigation</span></h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.kontakt">Kontakt</span></h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div><div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.legal">Rechtliches</span></h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div></div><div class="footer-bottom"><span><span data-i18n="footer.copy">© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></span></div></div></footer>
   <script src="main.js"></script>
   <!-- WhatsApp Float -->
   <a href="https://wa.me/436601077755" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
@@ -121,7 +122,8 @@
   </a>
   <!-- Sticky Mobile CTA -->
   <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+    <a href="kontakt.html" class="btn-primary"><span data-i18n="cta.mobile">Jetzt anfragen</span></a>
   </div>
+  <script src="i18n.js"></script>
 </body>
 </html>

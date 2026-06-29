@@ -46,20 +46,21 @@
       <a href="index.html" class="nav-logo"><img src="MESKRO.png" alt="Meskro Cars"></a>
       <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="fahrzeuge.html" class="nav-link active">Alle Modelle</a></li>
-        <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
-        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
-        <li><a href="kontakt.html" class="btn-primary nav-cta">Anfragen ↗</a></li>
+        <li><a href="index.html" class="nav-link"><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="fahrzeuge.html" class="nav-link active"><span data-i18n="nav.modelle">Alle Modelle</span></a></li>
+        <li><a href="ueber-uns.html" class="nav-link"><span data-i18n="nav.ueber">Über uns</span></a></li>
+        <li><a href="kontakt.html" class="nav-link"><span data-i18n="nav.kontakt">Kontakt</span></a></li>
+        <li><a href="kontakt.html" class="btn-primary nav-cta"><span data-i18n="nav.anfragen">Anfragen ↗</span></a></li>
       </ul>
-    </div>
+          <button id="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+      </div>
   </nav>
 
   <section class="car-hero">
     <div class="car-hero-img" style="background-image: url('images/Mercedes C63S Cabrio/3.jpg');"></div>
     <div class="hero-overlay"></div>
     <div class="car-hero-content">
-      <a href="fahrzeuge.html" class="car-back-link">← Alle Fahrzeuge</a>
+      <a href="fahrzeuge.html" class="car-back-link"><span data-i18n="car.back">← Alle Fahrzeuge</span></a>
       <span class="badge-pill">Sport</span>
       <h1 class="display-xl">Mercedes C63S<br>AMG Cabrio</h1>
     </div>
@@ -76,7 +77,7 @@
         <div class="car-spec-divider"></div>
         <div class="car-spec"><span class="spec-value">4.0L</span><span class="spec-label">V8 Biturbo</span></div>
         <div class="car-spec-divider"></div>
-        <div class="car-spec"><span class="spec-value">Cabrio</span><span class="spec-label">Karosserie</span></div>
+        <div class="car-spec"><span class="spec-value">Cabrio</span><span class="spec-label"><span data-i18n="car.karosserie">Karosserie</span></span></div>
       </div>
     </div>
   </section>
@@ -85,15 +86,15 @@
     <div class="container">
       <div class="car-detail-grid">
         <div class="car-detail-text reveal">
-          <span class="caption-uppercase section-eyebrow">Das Fahrzeug</span>
+          <span class="caption-uppercase section-eyebrow"><span data-i18n="c63s.eye">Das Fahrzeug</span></span>
           <h2 class="display-lg">Offen. Kraftvoll. Ungestüm.</h2>
           <p class="body-text">Der Mercedes-AMG C63S Cabrio ist mehr als ein Auto — er ist ein Erlebnis. Mit seinem 4,0-Liter-V8-Biturbo-Motor, der 510 PS und 700 Nm Drehmoment entwickelt, katapultiert er dich in 4,0 Sekunden von 0 auf 100 km/h.</p>
           <p class="body-text">Das versenkbare Verdeck öffnet den Blick auf den Wiener Himmel und lässt jeden Kilometer zum Genuss werden — ob auf der Ringstraße oder auf der Autobahn. AMG-Fahrwerk, adaptive Dämpfer und das charakteristische V8-Grollen machen jede Fahrt unvergesslich.</p>
           <p class="body-text">Perfekt für besondere Anlässe, Geburtstage, Ausflüge oder einfach wenn man das Beste vom Besten verdient.</p>
-          <a href="kontakt.html" class="btn-primary" style="margin-top: 16px;">Jetzt anfragen</a>
+          <a href="kontakt.html" class="btn-primary" style="margin-top: 16px;"><span data-i18n="car.anfragen">Jetzt anfragen</span></a>
         </div>
         <div class="car-detail-features reveal reveal-delay-2">
-          <h3 class="title-md" style="margin-bottom: 24px;">Highlights</h3>
+          <h3 class="title-md" style="margin-bottom: 24px;"><span data-i18n="car.highlights">Highlights</span></h3>
           <ul class="car-features-list">
             <li>4,0L V8 Biturbo — 510 PS</li>
             <li>AMG Performance Abgasanlage</li>
@@ -111,7 +112,7 @@
 
   <section class="car-gallery section-dark" style="padding-top: 0;">
     <div class="container">
-      <h2 class="display-md reveal" style="margin-bottom: 32px;">Galerie</h2>
+      <h2 class="display-md reveal" style="margin-bottom: 32px;"><span data-i18n="car.galerie">Galerie</span></h2>
       <div class="gallery-grid">
         <div class="gallery-item gallery-item--large" onclick="openLightbox(0)">
           <img src="images/Mercedes C63S Cabrio/1.jpg" alt="Mercedes C63S AMG Cabrio">
@@ -132,8 +133,8 @@
     <section class="weitere-modelle">
     <div class="container">
       <div class="weitere-modelle-header">
-        <span class="weitere-modelle-title">Weitere Modelle entdecken</span>
-        <a class="weitere-modelle-link" href="fahrzeuge.html">Alle ansehen ↗</a>
+        <span class="weitere-modelle-title"><span data-i18n="cta.alle.modelle">Weitere Modelle entdecken</span></span>
+        <a class="weitere-modelle-link" href="fahrzeuge.html"><span data-i18n="cta.alle.ansehen">Alle ansehen ↗</span></a>
       </div>
       <div class="weitere-modelle-row">
         <a class="weitere-modelle-card" href="mercedes-g63.html">
@@ -179,12 +180,12 @@
     <div class="container">
       <div class="car-cta-bottom-inner">
         <div class="car-cta-bottom-text">
-          <h2>Bereit für dein Traumauto?</h2>
-          <p>Kontaktiere uns — persönlich, schnell und unverbindlich.</p>
+          <h2><span data-i18n="cta.traumauto.h2">Bereit für dein Traumauto?</span></h2>
+          <p><span data-i18n="cta.traumauto.p">Kontaktiere uns — persönlich, schnell und unverbindlich.</span></p>
         </div>
         <div class="car-cta-bottom-actions">
-          <a href="kontakt.html" class="mag-btn-red">Jetzt anfragen ↗</a>
-          <a href="https://wa.me/436601077755" class="mag-btn-ghost" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="kontakt.html" class="mag-btn-red"><span data-i18n="cta.anfragen">Jetzt anfragen ↗</span></a>
+          <a href="https://wa.me/436601077755" class="mag-btn-ghost" target="_blank" rel="noopener"><span data-i18n="cta.whatsapp">WhatsApp</span></a>
         </div>
       </div>
     </div>
@@ -195,17 +196,17 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo">
-          <p class="footer-tagline">Luxusautovermietung Wien</p>
+          <p class="footer-tagline"><span data-i18n="footer.tagline">Luxusautovermietung Wien</span></p>
           <a href="https://www.instagram.com/meskro.cars/" class="footer-ig" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>@meskro.cars</span>
           </a>
         </div>
-        <div class="footer-col"><h4 class="footer-heading">Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-        <div class="footer-col"><h4 class="footer-heading">Kontakt</h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div>
-        <div class="footer-col"><h4 class="footer-heading">Rechtliches</h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.nav">Navigation</span></h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="fahrzeuge.html">Alle Modelle</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.kontakt">Kontakt</span></h4><ul class="footer-links"><li><a href="tel:+436601077755">+43 660 1077755</a></li><li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li><li>1220 Wien, Österreich</li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading"><span data-i18n="footer.legal">Rechtliches</span></h4><ul class="footer-links"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
       </div>
-      <div class="footer-bottom"><span>© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></div>
+      <div class="footer-bottom"><span><span data-i18n="footer.copy">© 2025 Meskro Cars. Alle Rechte vorbehalten.</span></span></div>
     </div>
   </footer>
 
@@ -242,7 +243,8 @@
   </a>
   <!-- Sticky Mobile CTA -->
   <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+    <a href="kontakt.html" class="btn-primary"><span data-i18n="cta.mobile">Jetzt anfragen</span></a>
   </div>
+  <script src="i18n.js"></script>
 </body>
 </html>
