@@ -998,17 +998,40 @@ a.contact-info-item:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(14,14,14,0.98);
-    backdrop-filter: blur(20px);
+    background: #0e0e0e;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--sp-xl);
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 12px 0 40px;
     z-index: 99;
+    overflow-y: auto;
   }
   .nav-links.open { display: flex; }
-  .nav-link { font-size: 15px; letter-spacing: 2px; }
-  .nav-cta { height: 52px; padding: 0 40px; font-size: 12px; margin-left: 0; }
+  .nav-links li {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-links li:first-child {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-link {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    padding: 20px 28px;
+    color: rgba(255,255,255,0.7);
+  }
+  .nav-link:hover, .nav-link.active { color: #fff; background: rgba(255,255,255,0.03); }
+  .nav-link::after { display: none; }
+  .nav-links li:last-child { border-bottom: none; padding: 24px 28px 0; }
+  .nav-cta {
+    display: flex;
+    width: calc(100% - 56px);
+    margin: 0 28px;
+    height: 52px;
+    font-size: 12px;
+    justify-content: center;
+  }
 
   .feature-grid { grid-template-columns: 1fr; }
   .fleet-grid { grid-template-columns: 1fr; }
@@ -1026,6 +1049,13 @@ a.contact-info-item:hover {
   .btn-primary, .btn-outline-dark { width: 100%; justify-content: center; }
   .hero-scroll { display: none; }
   .cursor-glow { display: none; }
+
+  /* Allgemeine Sektionsabstände mobil */
+  .section { padding: 56px 0; }
+  .section-dark { padding: 56px 0; }
+  .red-band { padding: 48px 0; }
+  .footer { padding-top: 48px; }
+  .container { padding: 0 20px; }
 }
 
 @media (max-width: 480px) {
