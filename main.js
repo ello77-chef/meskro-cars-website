@@ -8,6 +8,13 @@ onScroll();
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('nav-links');
 
+// Move mobile nav to <body> level so the navbar's backdrop-filter
+// stacking context doesn't trap it (backdrop-filter creates a containing block
+// for position:fixed children, which prevents the menu from covering the page)
+if (navLinks && navLinks.parentElement !== document.body) {
+  document.body.appendChild(navLinks);
+}
+
 function closeNav() {
   hamburger.classList.remove('open');
   navLinks.classList.remove('open');
