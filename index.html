@@ -78,7 +78,13 @@
 
   <!-- ══ HERO ══ -->
   <section class="ad-hero">
-    <div class="ad-hero-bg" style="background-image:url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg');"></div>
+    <!-- Video layer — plays first, then fades out -->
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;">
+      <video class="ad-hero-video" id="hero-video" autoplay muted playsinline>
+        <source src="videos/c63-felge-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="ad-hero-bg" id="hero-bg-img" style="background-image:url('images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg'); opacity:0;"></div>
     <div class="ad-hero-overlay"></div>
 
     <!-- Grid lines -->
@@ -88,18 +94,25 @@
 
     <div class="ad-hero-content">
       <div class="ad-hero-text">
-        <h1 class="ad-hero-title">Starte die Reise<br>des Luxus —<br>Dein Traumauto<br>wartet.</h1>
+        <div class="ad-hero-eyebrow">Luxusautovermietung Wien</div>
+        <h1 class="ad-hero-title">
+          <span class="hero-line"><span class="hero-line-inner">Starte die Reise</span></span>
+          <span class="hero-line"><span class="hero-line-inner">des Luxus —</span></span>
+          <span class="hero-line"><span class="hero-line-inner">Dein Traumauto</span></span>
+          <span class="hero-line"><span class="hero-line-inner">wartet.</span></span>
+        </h1>
+        <a href="#fleet-section" class="ad-explore-btn mag-cta" id="hero-cta" style="margin-top:36px; opacity:0; animation: heroFadeUp 0.8s 1.4s cubic-bezier(0.16,1,0.3,1) forwards;">Fahrzeug auswählen</a>
       </div>
 
       <!-- Stats bottom-left -->
       <div class="ad-hero-stats">
         <div class="ad-stat">
-          <span class="ad-stat-num">10+</span>
+          <span class="ad-stat-num" id="hero-stat-fahrzeuge">10+</span>
           <span class="ad-stat-lbl">Fahrzeuge</span>
         </div>
         <div class="ad-stat-sep"></div>
         <div class="ad-stat">
-          <span class="ad-stat-num">24/7</span>
+          <span class="ad-stat-num" id="hero-stat-erreichbar">24/7</span>
           <span class="ad-stat-lbl">Erreichbar</span>
         </div>
         <div class="ad-stat-sep"></div>
@@ -109,27 +122,13 @@
         </div>
       </div>
 
-      <div class="ad-hero-scroll">Scroll Down</div>
+      <div class="ad-hero-scroll" role="button" tabindex="0" aria-label="Zur Flotte scrollen">Scroll Down</div>
     </div>
 
-    <!-- Featured car card — bottom right -->
-    <div class="ad-featured-card">
-      <div class="ad-featured-info">
-        <span class="ad-featured-name">Mercedes C63S AMG</span>
-        <span class="ad-featured-sub">Automatik · Vollkasko</span>
-      </div>
-      <div class="ad-featured-img">
-        <img src="images/Mercedes C63S Cabrio/730760502_18436369042121191_3200997607093283010_n.jpg" alt="C63S AMG">
-      </div>
-      <a href="fahrzeuge.html" class="ad-explore-btn">
-        <span>Alle Fahrzeuge</span>
-        <span class="ad-arrow-box">↗</span>
-      </a>
-    </div>
   </section>
 
   <!-- ══ 01 / FLOTTE ══ -->
-  <section class="ad-fleet-section">
+  <section class="ad-fleet-section" id="fleet-section">
     <!-- Grid lines -->
     <div class="grid-lines"><div class="gl"></div><div class="gl"></div><div class="gl"></div><div class="gl"></div></div>
 
@@ -137,74 +136,80 @@
       <div class="ad-section-label">01 / FLOTTE</div>
       <div class="ad-fleet-header">
         <h2 class="ad-section-title">Wiens größte Luxusflotte.</h2>
-        <a href="fahrzeuge.html" class="ad-text-btn">Alle Sportwagen <span class="ad-arrow-box">↗</span></a>
+        <a href="fahrzeuge.html" class="ad-explore-btn">Alle Sportwagen</a>
       </div>
 
       <!-- Big showcase car -->
       <div class="ad-showcase">
         <div class="ad-showcase-car" id="showcase-car" data-href="mercedes-c63s-cabrio.html">
-          <img src="images/Mercedes G63 AMG/730640418_18436766950121191_5921880948483093070_n.jpg" alt="G63 AMG" id="showcase-img">
+          <img src="images/Mercedes C63S Cabrio/3.jpg" alt="Mercedes C63S AMG Cabrio" id="showcase-img">
         </div>
         <div class="ad-showcase-meta" id="showcase-meta">
-          <span class="ad-showcase-name">Mercedes G63 AMG</span>
-          <span class="ad-showcase-badge">SUV</span>
+          <span class="ad-showcase-name">Mercedes C63S AMG Cabrio</span>
+          <span class="ad-showcase-badge">Sport</span>
         </div>
       </div>
 
       <!-- Horizontal car cards -->
       <div class="ad-cars-row" id="cars-row">
-        <div class="ad-car-card active" data-href="mercedes-c63s-cabrio.html"
-          data-img="images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg"
+        <div class="ad-car-card active" data-href="mercedes-c63s-cabrio.html" data-category="sport"
+          data-img="images/Mercedes C63S Cabrio/3.jpg"
           data-name="Mercedes C63S AMG Cabrio" data-badge="Sport">
-          <div class="ad-car-card-img"><img src="images/Mercedes C63S Cabrio/730695817_18436369033121191_7569241950180966836_n.jpg" alt="C63S Cabrio"></div>
+          <div class="ad-car-card-img"><img src="images/Mercedes C63S Cabrio/3.jpg" alt="Mercedes C63S AMG Cabrio" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">Mercedes C63S Cabrio</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
-        <div class="ad-car-card" data-href="mercedes-g63.html"
-          data-img="images/Mercedes G63 AMG/730640418_18436766950121191_5921880948483093070_n.jpg"
+        <div class="ad-car-card" data-href="mercedes-g63.html" data-category="suv"
+          data-img="images/Mercedes G63 AMG/2.jpg"
           data-name="Mercedes G63 AMG" data-badge="SUV">
-          <div class="ad-car-card-img"><img src="images/Mercedes G63 AMG/730640418_18436766950121191_5921880948483093070_n.jpg" alt="G63 AMG"></div>
+          <div class="ad-car-card-img"><img src="images/Mercedes G63 AMG/2.jpg" alt="Mercedes G63 AMG" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">Mercedes G63 AMG</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
-        <div class="ad-car-card" data-href="mercedes-gle450d.html"
-          data-img="images/Mercedes GLE450d/648594168_18418685185121191_5848811198251804296_n.jpg"
+        <div class="ad-car-card" data-href="mercedes-gle450d.html" data-category="suv"
+          data-img="images/Mercedes GLE450d/1.jpg"
           data-name="Mercedes GLE 450d" data-badge="SUV">
-          <div class="ad-car-card-img"><img src="images/Mercedes GLE450d/648594168_18418685185121191_5848811198251804296_n.jpg" alt="GLE 450d"></div>
+          <div class="ad-car-card-img"><img src="images/Mercedes GLE450d/1.jpg" alt="Mercedes GLE 450d" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">Mercedes GLE 450d</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
-        <div class="ad-car-card" data-href="mercedes-s400.html"
-          data-img="images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg"
+        <div class="ad-car-card" data-href="mercedes-s400.html" data-category="limousine"
+          data-img="images/Mercedes S400/1.jpg"
           data-name="Mercedes S400" data-badge="Limousine">
-          <div class="ad-car-card-img"><img src="images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg" alt="S400"></div>
+          <div class="ad-car-card-img"><img src="images/Mercedes S400/1.jpg" alt="Mercedes S400" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">Mercedes S400</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
-        <div class="ad-car-card" data-href="bmw-m5.html"
-          data-img="images/BMW M5 F90/484278285_18366860209121191_756175195284917977_n.jpg"
+        <div class="ad-car-card" data-href="bmw-m5.html" data-category="sport"
+          data-img="images/BMW M5 F90/1.jpg"
           data-name="BMW M5 F90" data-badge="Sport">
-          <div class="ad-car-card-img"><img src="images/BMW M5 F90/484278285_18366860209121191_756175195284917977_n.jpg" alt="BMW M5"></div>
+          <div class="ad-car-card-img"><img src="images/BMW M5 F90/1.jpg" alt="BMW M5 F90" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">BMW M5 F90</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
-        <div class="ad-car-card" data-href="mercedes-c200.html"
-          data-img="images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg"
+        <div class="ad-car-card" data-href="mercedes-c200.html" data-category="limousine"
+          data-img="images/Mercedes C200/1.jpg"
           data-name="Mercedes C200" data-badge="Limousine">
-          <div class="ad-car-card-img"><img src="images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg" alt="C200"></div>
+          <div class="ad-car-card-img"><img src="images/Mercedes C200/1.jpg" alt="Mercedes C200" loading="lazy"></div>
           <div class="ad-car-card-info">
             <span class="ad-car-card-name">Mercedes C200</span>
             <span class="ad-car-card-sub">Automatik · Vollkasko</span>
+            <span class="ad-car-card-price">ab XX €/Tag</span>
           </div>
         </div>
       </div>
@@ -242,7 +247,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
           </div>
           <h3 class="ad-step-title">Datum anfragen</h3>
-          <p class="ad-step-desc">Schreib uns per WhatsApp oder Kontaktformular — wir antworten sofort.</p>
+          <p class="ad-step-desc">Schreib uns per <a href="https://wa.me/436601077755" target="_blank" rel="noopener" style="color:var(--primary);">WhatsApp</a> oder <a href="kontakt.html" style="color:var(--primary);">Kontaktformular</a> — wir antworten sofort.</p>
         </div>
         <div class="ad-step">
           <span class="ad-step-num">03</span>
@@ -272,7 +277,7 @@
         <div class="ad-section-label">03 / LEISTUNGEN</div>
         <h2 class="ad-section-title">Alles was du<br>brauchst.</h2>
         <div class="ad-services-car">
-          <img src="images/Mercedes S400/545254128_18390588619121191_8666302708401170833_n.jpg" alt="Meskro Cars Service">
+          <img src="images/Mercedes S400/1.jpg" alt="Meskro Cars Service" loading="lazy">
         </div>
       </div>
       <div class="ad-services-list">
@@ -317,10 +322,8 @@
           <div class="ad-service-body">Du willst länger in einem Luxusfahrzeug unterwegs sein? Wir bieten flexible Monatsmieten zu attraktiven Konditionen. Ideal für Geschäftsreisende, besondere Lebensabschnitte oder einfach für alle, die Stil lieben.</div>
         </div>
         <div class="ad-services-cta">
-          <a href="kontakt.html" class="ad-explore-btn" style="width:100%;justify-content:space-between;">
-            <span>Jetzt anfragen</span>
-            <span class="ad-arrow-box">↗</span>
-          </a>
+          <p style="font-size:13px; color:var(--body); line-height:1.7; margin-bottom:16px;">Noch unsicher? Schreib uns einfach — unverbindlich und kostenlos.</p>
+          <a href="kontakt.html" class="ad-explore-btn" style="width:100%;">Jetzt anfragen</a>
         </div>
       </div>
     </div>
@@ -336,27 +339,28 @@
           <h2 class="ad-section-title">Meskro Cars.<br>Wien.</h2>
           <p class="ad-about-body">Wir sind eine Luxusautovermietung aus Wien — gegründet von Enthusiasten für Enthusiasten. Unser Anspruch: das beste Fahrerlebnis, persönlicher Service und eine Flotte, die keine Wünsche offen lässt.</p>
           <p class="ad-about-body">Jedes Fahrzeug ist sorgfältig gepflegt, vollversichert und sofort verfügbar. Kein Call-Center — direkt, ehrlich, schnell.</p>
-          <a href="ueber-uns.html" class="ad-explore-btn" style="margin-top:32px;">
-            <span>Mehr über uns</span>
-            <span class="ad-arrow-box">↗</span>
-          </a>
+          <a href="ueber-uns.html" class="ad-explore-btn" style="margin-top:32px;">Mehr über uns</a>
         </div>
         <div class="ad-about-stats">
           <div class="ad-about-stat">
-            <span class="ad-about-stat-num">10+</span>
+            <span class="ad-about-stat-num" data-target="10" data-suffix="+">10+</span>
             <span class="ad-about-stat-lbl">Exklusive Fahrzeuge</span>
           </div>
           <div class="ad-about-stat">
-            <span class="ad-about-stat-num">24/7</span>
+            <span class="ad-about-stat-num" data-target="24" data-suffix="/7">24/7</span>
             <span class="ad-about-stat-lbl">Erreichbar</span>
           </div>
           <div class="ad-about-stat">
-            <span class="ad-about-stat-num">100%</span>
+            <span class="ad-about-stat-num" data-target="100" data-suffix="%">100%</span>
             <span class="ad-about-stat-lbl">Vollkasko</span>
           </div>
           <div class="ad-about-stat">
             <span class="ad-about-stat-num">Wien</span>
             <span class="ad-about-stat-lbl">1220, Österreich</span>
+          </div>
+          <div class="ad-about-stat" style="grid-column: span 2;">
+            <span class="ad-about-stat-num" style="font-size:22px; letter-spacing:2px;">★★★★★ 4,9/5</span>
+            <span class="ad-about-stat-lbl"><a href="https://g.page/r/DEIN-GOOGLE-REVIEW-LINK/review" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">120+ Google Bewertungen</a></span>
           </div>
         </div>
       </div>
@@ -432,33 +436,57 @@
     if (href) window.location.href = href;
   });
 
-  // Filter tabs
+  // Filter tabs — filter car cards by data-category
   document.querySelectorAll('.ad-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelector('.ad-tab.active').classList.remove('active');
       tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.ad-car-card').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+      });
+      // If no active card is visible, activate first visible card
+      const activeCard = document.querySelector('.ad-car-card.active');
+      if (activeCard && activeCard.style.display === 'none') {
+        const first = document.querySelector('.ad-car-card:not([style*="none"])');
+        if (first) activateCard(first);
+      }
     });
   });
 
-  // Service accordion
+  // Service accordion with aria-expanded
   document.querySelectorAll('.ad-service-item').forEach(item => {
+    const btn = item.querySelector('.ad-service-plus');
+    btn.setAttribute('aria-expanded', 'false');
     item.querySelector('.ad-service-top').addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.ad-service-item.open').forEach(o => {
         o.classList.remove('open');
         o.querySelector('.ad-service-plus').textContent = '+';
+        o.querySelector('.ad-service-plus').setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
         item.classList.add('open');
-        item.querySelector('.ad-service-plus').textContent = '−';
+        btn.textContent = '−';
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
   </script>
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/436601077755" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#25D366;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.847L.057 23.882a.5.5 0 00.61.61l6.086-1.461A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.999-3.648-.235-.374A9.86 9.86 0 012.1 12C2.1 6.534 6.534 2.1 12 2.1c5.467 0 9.9 4.434 9.9 9.9 0 5.467-4.433 9.9-9.9 9.9z"/></svg>
+    <span class="wa-float-label">WhatsApp</span>
+  </a>
   <!-- Instagram Float -->
   <a href="https://www.instagram.com/meskro.cars/" class="ig-float" target="_blank" rel="noopener" aria-label="Instagram">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
     <span class="ig-float-label">Instagram</span>
   </a>
+  <!-- Sticky Mobile CTA -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+  </div>
 </body>
 </html>

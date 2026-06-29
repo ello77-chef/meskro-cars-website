@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Impressum von Meskro Cars — Luxusautovermietung Wien. Angaben gemäß § 5 ECG.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ello77-chef.github.io/meskro-cars-website/impressum.html">
+  <title>Impressum — Meskro Cars Wien</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Page entry animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* ── Hero ── */
+    .imp-hero {
+      position: relative;
+      padding: 160px 0 100px;
+      background: var(--canvas);
+      overflow: hidden;
+    }
+    .imp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(218,41,28,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(218,41,28,.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .imp-hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .imp-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 28px;
+      animation: fadeUp .6s var(--ease-out) both;
+    }
+    .imp-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--primary);
+    }
+    .imp-hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 500;
+      letter-spacing: -2.5px;
+      line-height: 1.0;
+      color: #fff;
+      max-width: 700px;
+      animation: fadeUp .7s var(--ease-out) .1s both;
+    }
+    .imp-hero-divider {
+      margin-top: 48px;
+      height: 1px;
+      background: var(--hairline);
+      transform-origin: left;
+      animation: lineGrow .8s var(--ease-out) .4s both;
+    }
+
+    /* ── Layout ── */
+    .imp-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 40px 140px;
+    }
+
+    /* ── Sidebar ── */
+    .imp-sidebar {
+      padding-right: 48px;
+      padding-top: 4px;
+    }
+    .imp-nav {
+      position: sticky;
+      top: 100px;
+    }
+    .imp-nav-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .imp-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .imp-nav-list li + li { margin-top: 2px; }
+    .imp-nav-list a {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--body);
+      padding: 8px 12px;
+      border-left: 2px solid transparent;
+      transition: color .2s, border-color .2s, padding-left .2s;
+    }
+    .imp-nav-list a:hover,
+    .imp-nav-list a.active {
+      color: #fff;
+      border-left-color: var(--primary);
+      padding-left: 16px;
+    }
+
+    /* ── Content ── */
+    .imp-content {
+      border-left: 1px solid var(--hairline);
+      padding-left: 64px;
+    }
+
+    .imp-section {
+      padding-bottom: 56px;
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--hairline);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+    }
+    .imp-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .imp-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .imp-section-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .imp-section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+      margin-bottom: 24px;
+    }
+    .imp-section p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--body);
+      margin-bottom: 12px;
+    }
+    .imp-section p:last-child { margin-bottom: 0; }
+    .imp-section a {
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(218,41,28,.3);
+      transition: border-color .2s;
+    }
+    .imp-section a:hover { border-bottom-color: var(--primary); }
+    .imp-section strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── Info card ── */
+    .imp-card {
+      background: var(--canvas-elevated);
+      border: 1px solid var(--hairline);
+      padding: 28px 32px;
+      margin: 8px 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .imp-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--primary);
+    }
+    .imp-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--body);
+    }
+    .imp-card p strong { color: #fff; }
+
+    /* ── Contact grid ── */
+    .imp-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .imp-contact-item {
+      background: var(--canvas-elevated);
+      border: 1px solid var(--hairline);
+      padding: 20px 24px;
+      transition: border-color .25s;
+    }
+    .imp-contact-item:hover { border-color: rgba(218,41,28,.4); }
+    .imp-contact-item .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .imp-contact-item .value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+    }
+    .imp-contact-item .value a {
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .imp-contact-item .value a:hover {
+      border-bottom-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .imp-layout {
+        grid-template-columns: 1fr;
+        padding: 60px 24px 100px;
+      }
+      .imp-sidebar { display: none; }
+      .imp-content {
+        border-left: none;
+        padding-left: 0;
+      }
+      .imp-hero-inner { padding: 0 24px; }
+      .imp-contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="MESKRO.png" alt="Meskro Cars">
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="fahrzeuge.html" class="nav-link">Alle Modelle</a></li>
+        <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        <li><a href="kontakt.html" class="btn-primary nav-cta">Anfrage</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="imp-hero">
+    <div class="imp-hero-inner">
+      <span class="imp-eyebrow">Rechtliches</span>
+      <h1>Impressum</h1>
+      <div class="imp-hero-divider"></div>
+    </div>
+  </div>
+
+  <!-- Main layout -->
+  <div class="imp-layout">
+
+    <!-- Sidebar navigation -->
+    <aside class="imp-sidebar">
+      <nav class="imp-nav">
+        <p class="imp-nav-label">Inhalt</p>
+        <ul class="imp-nav-list">
+          <li><a href="#betreiber">Betreiber</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#unternehmensgegenstand">Unternehmensgegenstand</a></li>
+          <li><a href="#haftung">Haftungsausschluss</a></li>
+          <li><a href="#urheberrecht">Urheberrecht</a></li>
+          <li><a href="#streitbeilegung">Streitbeilegung</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <div class="imp-content">
+
+      <section class="imp-section" id="betreiber">
+        <p class="imp-section-num">01</p>
+        <h2>Angaben gemäß § 5 ECG</h2>
+        <div class="imp-card">
+          <p>
+            <strong>Meskro Cars</strong><br>
+            1220 Wien<br>
+            Österreich
+          </p>
+        </div>
+        <p>Meskro Cars ist ein Einzelunternehmen mit Sitz in Wien, das exklusive Fahrzeuge zur kurzzeitigen Miete anbietet.</p>
+      </section>
+
+      <section class="imp-section" id="kontakt">
+        <p class="imp-section-num">02</p>
+        <h2>Kontakt</h2>
+        <div class="imp-contact-grid">
+          <div class="imp-contact-item">
+            <p class="label">Telefon</p>
+            <p class="value"><a href="tel:+436601077755">+43 660 1077755</a></p>
+          </div>
+          <div class="imp-contact-item">
+            <p class="label">E-Mail</p>
+            <p class="value"><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></p>
+          </div>
+          <div class="imp-contact-item">
+            <p class="label">Website</p>
+            <p class="value"><a href="https://meskrocars.com" target="_blank" rel="noopener">meskrocars.com</a></p>
+          </div>
+          <div class="imp-contact-item">
+            <p class="label">Instagram</p>
+            <p class="value"><a href="https://www.instagram.com/meskro.cars/" target="_blank" rel="noopener">@meskro.cars</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="imp-section" id="unternehmensgegenstand">
+        <p class="imp-section-num">03</p>
+        <h2>Unternehmensgegenstand</h2>
+        <p>Vermietung von Luxus- und Sportfahrzeugen im Raum Wien. Unser Angebot umfasst Fahrzeuge der Marken Mercedes-Benz AMG, BMW M und weitere exklusive Modelle für Privat- und Geschäftskunden.</p>
+      </section>
+
+      <section class="imp-section" id="haftung">
+        <p class="imp-section-num">04</p>
+        <h2>Haftungsausschluss</h2>
+        <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Meskro Cars übernimmt jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte.</p>
+        <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+        <p>Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. Eine diesbezügliche Haftung übernehmen wir erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung.</p>
+      </section>
+
+      <section class="imp-section" id="urheberrecht">
+        <p class="imp-section-num">05</p>
+        <h2>Urheberrecht</h2>
+        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        <p>Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.</p>
+      </section>
+
+      <section class="imp-section" id="streitbeilegung">
+        <p class="imp-section-num">06</p>
+        <h2>Online-Streitbeilegung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit. Meskro Cars ist nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <div class="imp-card">
+          <p>
+            <strong>Österreichische Datenschutzbehörde</strong><br>
+            Barichgasse 40–42, 1030 Wien<br>
+            <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>
+          </p>
+        </div>
+        <p>Stand: Juni 2026</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="MESKRO.png" alt="Meskro Cars" height="28" class="footer-logo">
+          <p class="footer-tagline">Luxusautovermietung Wien</p>
+          <a href="https://www.instagram.com/meskro.cars/" class="footer-ig" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>@meskro.cars</span>
+          </a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fahrzeuge.html">Alle Modelle</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+436601077755">+43 660 1077755</a></li>
+            <li><a href="mailto:meskro777@hotmail.com">meskro777@hotmail.com</a></li>
+            <li>1220 Wien, Österreich</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="impressum.html" style="color:#fff;">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Meskro Cars. Alle Rechte vorbehalten.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+  <script>
+    /* Scroll-spy sidebar + section reveal */
+    const sections = document.querySelectorAll('.imp-section');
+    const navLinks = document.querySelectorAll('.imp-nav-list a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const id = entry.target.id;
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <a href="https://www.instagram.com/meskro.cars/" class="ig-float" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    <span class="ig-float-label">Instagram</span>
+  </a>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+  </div>
+</body>
+</html>

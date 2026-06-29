@@ -7,17 +7,36 @@ onScroll();
 /* ── Hamburger ── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('nav-links');
+
+// On mobile: move nav-links to <body> so the navbar's backdrop-filter
+// stacking context doesn't trap position:fixed children inside 72px height
+function reparentNavIfMobile() {
+  if (!navLinks) return;
+  if (window.innerWidth <= 768 && navLinks.parentElement !== document.body) {
+    document.body.appendChild(navLinks);
+  }
+}
+reparentNavIfMobile();
+
+function closeNav() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+  document.body.classList.remove('nav-open');
+}
+
 hamburger?.addEventListener('click', () => {
-  const open = hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
+  const opening = !navLinks.classList.contains('open');
+  if (opening) {
+    hamburger.classList.add('open');
+    navLinks.classList.add('open');
+    document.body.classList.add('nav-open');
+  } else {
+    closeNav();
+  }
 });
+
 navLinks?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeNav);
 });
 
 /* ── Hero entrance animations ── */
@@ -25,8 +44,113 @@ function animateHero() {
   document.querySelectorAll('.hero-label, .hero-content h1, .hero-sub, .hero-actions, .hero-scroll, .hero-red-line').forEach(el => {
     el.classList.add('animate');
   });
+
+  // Character-by-character reveal for hero title
+  let globalCharIdx = 0;
+  const BASE_DELAY  = 300;  // ms before first char
+  const CHAR_STEP   = 38;   // ms between each char
+
+  document.querySelectorAll('.hero-line-inner').forEach(lineEl => {
+    const text = lineEl.textContent;
+    lineEl.innerHTML = '';
+    Array.from(text).forEach(ch => {
+      const span = document.createElement('span');
+      span.className = 'hero-char';
+      span.textContent = ch === ' ' ? ' ' : ch;
+      lineEl.appendChild(span);
+      const delay = BASE_DELAY + globalCharIdx * CHAR_STEP;
+      setTimeout(() => span.classList.add('visible'), delay);
+      if (ch !== ' ') globalCharIdx++;
+    });
+  });
+
+  // Trigger hero stat counters manually — bypasses IntersectionObserver entirely
+  setTimeout(() => {
+    const fahrzeuge = document.getElementById('hero-stat-fahrzeuge');
+    const erreichbar = document.getElementById('hero-stat-erreichbar');
+    if (fahrzeuge) countUpDirect(fahrzeuge, 10, '+');
+    if (erreichbar) countUpDirect(erreichbar, 24, '/7');
+  }, 2200);
 }
-window.addEventListener('load', () => setTimeout(animateHero, 100));
+window.addEventListener('load', () => setTimeout(animateHero, 80));
+
+/* ── Hero scroll parallax + fade ── */
+const heroBg = document.querySelector('.ad-hero-bg');
+if (heroBg) {
+  const heroSection = heroBg.closest('.ad-hero');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroH = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    const progress = Math.min(scrolled / heroH, 1);
+    // Scale up from 1 → 1.12, opacity 1 → 0.35
+    const scale = 1 + progress * 0.12;
+    const opacity = 1 - progress * 0.65;
+    heroBg.style.transform = `scale(${scale})`;
+    heroBg.style.opacity = opacity;
+  }, { passive: true });
+}
+
+/* ── Hero "Scroll Down" click — scrolls to fleet section ── */
+const heroScrollEl = document.querySelector('.ad-hero-scroll');
+const fleetSection = document.getElementById('fleet-section');
+if (heroScrollEl && fleetSection) {
+  heroScrollEl.style.cursor = 'pointer';
+  heroScrollEl.addEventListener('click', () => {
+    fleetSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+/* ── Sticky Mobile CTA — appears after hero scrolls out ── */
+const adHero = document.querySelector('.ad-hero');
+const stickyCta = document.getElementById('mobile-sticky-cta');
+if (adHero && stickyCta) {
+  const ctaObs = new IntersectionObserver(([entry]) => {
+    stickyCta.classList.toggle('visible', !entry.isIntersecting);
+  }, { threshold: 0 });
+  ctaObs.observe(adHero);
+}
+
+/* ── Fahrzeuge page hero video → image transition ── */
+const fahrzeugeVideo = document.getElementById('fahrzeuge-hero-video');
+const fahrzeugeHeroBg = document.getElementById('fahrzeuge-hero-bg');
+if (fahrzeugeVideo && fahrzeugeHeroBg) {
+  fahrzeugeVideo.addEventListener('ended', () => {
+    fahrzeugeVideo.classList.add('fade-out');
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+  fahrzeugeVideo.addEventListener('error', () => {
+    fahrzeugeVideo.style.display = 'none';
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+  const p = fahrzeugeVideo.play();
+  if (p !== undefined) p.catch(() => {
+    fahrzeugeVideo.style.display = 'none';
+    fahrzeugeHeroBg.classList.add('visible', 'loaded');
+  });
+}
+
+/* ── Hero video → image transition ── */
+const heroVideo  = document.getElementById('hero-video');
+const heroBgImg  = document.getElementById('hero-bg-img');
+if (heroVideo && heroBgImg) {
+  heroVideo.addEventListener('ended', () => {
+    heroVideo.classList.add('fade-out');
+    heroBgImg.classList.add('visible', 'loaded');
+  });
+  // Fallback: if video fails to load, show image immediately
+  heroVideo.addEventListener('error', () => {
+    heroVideo.style.display = 'none';
+    heroBgImg.classList.add('visible', 'loaded');
+  });
+  // Fallback: if autoplay is blocked (some browsers), show image immediately
+  const playPromise = heroVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      heroVideo.style.display = 'none';
+      heroBgImg.classList.add('visible', 'loaded');
+    });
+  }
+}
 
 /* ── Hero image scale-in ── */
 const heroImage = document.querySelector('.hero-image');
@@ -113,11 +237,9 @@ if (window.innerWidth > 768) {
 }
 
 /* ── Number count-up animation ── */
-function countUp(el) {
-  const target = parseInt(el.dataset.target, 10);
-  if (!target) return;
-  const suffix = el.dataset.suffix || '';
-  const duration = 1400;
+function countUpDirect(el, target, suffix, duration) {
+  duration = duration || 1400;
+  el.textContent = '0' + suffix;
   const start = performance.now();
   const update = (now) => {
     const progress = Math.min((now - start) / duration, 1);
@@ -126,6 +248,12 @@ function countUp(el) {
     if (progress < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
+}
+
+function countUp(el) {
+  const target = parseInt(el.dataset.target, 10);
+  if (!target) return;
+  countUpDirect(el, target, el.dataset.suffix || '');
 }
 
 const countObserver = new IntersectionObserver((entries) => {
@@ -273,3 +401,65 @@ document.head.appendChild(style);
     if (e.key === 'ArrowLeft')  advance(-1);
   });
 })();
+
+/* ── Magnetic CTA buttons (desktop only) ── */
+if (window.innerWidth > 768) {
+  const MAG_STRENGTH = 0.28; // 0 = no pull, 1 = follows fully
+  const MAG_RADIUS   = 90;   // px around button edge that activates magnet
+
+  const magTargets = document.querySelectorAll(
+    '.btn-primary, .nav-book-btn, .nav-cta, .mag-cta, .ad-explore-btn'
+  );
+
+  magTargets.forEach(el => {
+    el.classList.add('mag-btn-active');
+
+    let rafId = null;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX  = 0;
+    let targetY  = 0;
+    let inside   = false;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function tick() {
+      currentX = lerp(currentX, targetX, 0.12);
+      currentY = lerp(currentY, targetY, 0.12);
+      el.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        el.style.transform = `translate(${targetX}px, ${targetY}px)`;
+        rafId = null;
+      }
+    }
+
+    function startTick() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    document.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+      const dx   = e.clientX - cx;
+      const dy   = e.clientY - cy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const edge = Math.max(rect.width, rect.height) / 2 + MAG_RADIUS;
+
+      if (dist < edge) {
+        inside   = true;
+        targetX  = dx * MAG_STRENGTH;
+        targetY  = dy * MAG_STRENGTH;
+        el.classList.add('mag-hovered');
+      } else if (inside) {
+        inside   = false;
+        targetX  = 0;
+        targetY  = 0;
+        el.classList.remove('mag-hovered');
+      }
+      startTick();
+    }, { passive: true });
+  });
+}
