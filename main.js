@@ -29,6 +29,10 @@ function animateHero() {
   document.querySelectorAll('.hero-line-inner').forEach(el => {
     el.classList.add('visible');
   });
+  // Trigger counter for hero stats (visible on load, not on scroll)
+  setTimeout(() => {
+    document.querySelectorAll('.ad-hero-stats [data-target]').forEach(el => countUp(el));
+  }, 1100);
 }
 window.addEventListener('load', () => setTimeout(animateHero, 80));
 
