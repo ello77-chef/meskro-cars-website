@@ -227,6 +227,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: rgba(255,255,255,0.65);
   transition: color 0.2s;
   position: relative;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
 }
 .nav-link::after {
   content: '';
