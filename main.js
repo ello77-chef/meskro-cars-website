@@ -123,6 +123,14 @@ if (heroVideo && heroBgImg) {
     heroVideo.style.display = 'none';
     heroBgImg.classList.add('visible', 'loaded');
   });
+  // Fallback: if autoplay is blocked (some browsers), show image immediately
+  const playPromise = heroVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      heroVideo.style.display = 'none';
+      heroBgImg.classList.add('visible', 'loaded');
+    });
+  }
 }
 
 /* ── Hero image scale-in ── */
