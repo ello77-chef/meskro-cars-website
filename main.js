@@ -304,3 +304,65 @@ document.head.appendChild(style);
     if (e.key === 'ArrowLeft')  advance(-1);
   });
 })();
+
+/* ── Magnetic CTA buttons (desktop only) ── */
+if (window.innerWidth > 768) {
+  const MAG_STRENGTH = 0.28; // 0 = no pull, 1 = follows fully
+  const MAG_RADIUS   = 90;   // px around button edge that activates magnet
+
+  const magTargets = document.querySelectorAll(
+    '.btn-primary, .nav-book-btn, .nav-cta, .mag-cta'
+  );
+
+  magTargets.forEach(el => {
+    el.classList.add('mag-btn-active');
+
+    let rafId = null;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX  = 0;
+    let targetY  = 0;
+    let inside   = false;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function tick() {
+      currentX = lerp(currentX, targetX, 0.12);
+      currentY = lerp(currentY, targetY, 0.12);
+      el.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        el.style.transform = `translate(${targetX}px, ${targetY}px)`;
+        rafId = null;
+      }
+    }
+
+    function startTick() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    document.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+      const dx   = e.clientX - cx;
+      const dy   = e.clientY - cy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const edge = Math.max(rect.width, rect.height) / 2 + MAG_RADIUS;
+
+      if (dist < edge) {
+        inside   = true;
+        targetX  = dx * MAG_STRENGTH;
+        targetY  = dy * MAG_STRENGTH;
+        el.classList.add('mag-hovered');
+      } else if (inside) {
+        inside   = false;
+        targetX  = 0;
+        targetY  = 0;
+        el.classList.remove('mag-hovered');
+      }
+      startTick();
+    }, { passive: true });
+  });
+}
