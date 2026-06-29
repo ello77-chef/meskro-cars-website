@@ -55,7 +55,7 @@
     </div>
   </nav>
   <section class="car-hero">
-    <div class="car-hero-img" style="background-image: url('images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg');"></div>
+    <div class="car-hero-img" style="background-image: url('images/Mercedes C200/1.jpg');"></div>
     <div class="hero-overlay"></div>
     <div class="car-hero-content">
       <a href="fahrzeuge.html" class="car-back-link">← Alle Fahrzeuge</a>
@@ -100,9 +100,9 @@
   <section class="car-gallery section-dark" style="padding-top:0;"><div class="container">
     <h2 class="display-md reveal" style="margin-bottom:32px;">Galerie</h2>
     <div class="gallery-grid">
-      <div class="gallery-item gallery-item--large" onclick="openLightbox(0)"><img src="images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg" alt="Mercedes C200"></div>
-      <div class="gallery-item" onclick="openLightbox(1)"><img src="images/Mercedes C200/494732652_18374338453121191_7896731596753717133_n.jpg" alt="Mercedes C200"></div>
-      <div class="gallery-item" onclick="openLightbox(2)"><img src="images/Mercedes C200/495560417_18374338444121191_8540792858492072544_n.jpg" alt="Mercedes C200"></div>
+      <div class="gallery-item gallery-item--large" onclick="openLightbox(0)"><img src="images/Mercedes C200/1.jpg" alt="Mercedes C200"></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="images/Mercedes C200/2.jpg" alt="Mercedes C200"></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="images/Mercedes C200/3.jpg" alt="Mercedes C200"></div>
     </div>
   </div></section>
   <section class="red-band"><div class="container red-band-inner">
@@ -117,7 +117,7 @@
   <div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close" onclick="closeLightbox()">✕</button><button class="lightbox-prev" onclick="event.stopPropagation();changeLightbox(-1)">‹</button><img class="lightbox-img" id="lightbox-img" src="" alt=""><button class="lightbox-next" onclick="event.stopPropagation();changeLightbox(1)">›</button></div>
   <script src="main.js"></script>
   <script>
-    const imgs=['images/Mercedes C200/491450426_18374338462121191_7705889390243583851_n.jpg','images/Mercedes C200/494732652_18374338453121191_7896731596753717133_n.jpg','images/Mercedes C200/495560417_18374338444121191_8540792858492072544_n.jpg'];
+    const imgs=['images/Mercedes C200/1.jpg','images/Mercedes C200/2.jpg','images/Mercedes C200/3.jpg'];
     let current=0;
     function openLightbox(i){current=i;document.getElementById('lightbox-img').src=imgs[i];document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
