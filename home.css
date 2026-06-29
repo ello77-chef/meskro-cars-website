@@ -116,6 +116,11 @@
 /* ══════════════════════
    HERO
 ══════════════════════ */
+#hero-sticky-wrapper {
+  height: 250vh; /* 100vh hero + 150vh spacer */
+  position: relative;
+}
+
 .ad-hero {
   position: sticky;
   top: 0;
