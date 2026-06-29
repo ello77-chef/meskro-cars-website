@@ -90,10 +90,9 @@
   // the document (scrollY >= heroHeight) and completes when spacer is fully
   // scrolled past (scrollY >= heroHeight + spacerHeight).
   function onScroll() {
-    const heroHeight   = canvas.closest('.ad-hero').offsetHeight;
     const spacerHeight = spacer.offsetHeight;
     const progress     = Math.max(0, Math.min(1,
-      (window.scrollY - heroHeight) / spacerHeight
+      window.scrollY / spacerHeight
     ));
     const idx = Math.min(FRAME_COUNT - 1, Math.floor(progress * FRAME_COUNT));
     if (idx !== currentFrameIndex) {
