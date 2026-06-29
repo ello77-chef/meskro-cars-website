@@ -126,6 +126,7 @@
 }
 
 .ad-hero-video {
+  display: block;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -135,6 +136,7 @@
   opacity: 1;
   transition: opacity 1.4s ease;
   z-index: 0;
+  pointer-events: none;
 }
 .ad-hero-video.fade-out { opacity: 0; }
 
@@ -173,6 +175,8 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  flex: 1;
+  min-width: 0;
 }
 
 .ad-hero-title {
