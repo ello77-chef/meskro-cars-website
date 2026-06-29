@@ -10,12 +10,14 @@ const navLinks  = document.getElementById('nav-links');
 hamburger?.addEventListener('click', () => {
   const open = hamburger.classList.toggle('open');
   navLinks.classList.toggle('open', open);
+  document.body.classList.toggle('nav-open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
 navLinks?.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
+    document.body.classList.remove('nav-open');
     document.body.style.overflow = '';
   });
 });

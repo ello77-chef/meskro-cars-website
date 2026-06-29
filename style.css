@@ -1008,7 +1008,7 @@ a.contact-info-item:hover {
     justify-content: flex-start;
     gap: 0;
     padding: 8px 0 48px;
-    z-index: 99;
+    z-index: 201;
     overflow-y: auto;
     /* Eingeklappt: unsichtbar, verschoben */
     opacity: 0;
@@ -1535,6 +1535,8 @@ a.contact-info-item:hover {
 }
 .mobile-sticky-cta .btn-primary { width: 100%; justify-content: center; }
 .mobile-sticky-cta.visible { transform: translateY(0); }
+/* Sticky CTA hinter dem Nav-Menü verstecken wenn Menü offen */
+body.nav-open .mobile-sticky-cta { transform: translateY(100%) !important; }
 
 @media (max-width: 768px) {
   .mobile-sticky-cta { display: flex; }
