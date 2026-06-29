@@ -311,7 +311,7 @@ if (window.innerWidth > 768) {
   const MAG_RADIUS   = 90;   // px around button edge that activates magnet
 
   const magTargets = document.querySelectorAll(
-    '.btn-primary, .nav-book-btn, .nav-cta, .mag-cta'
+    '.btn-primary, .nav-book-btn, .nav-cta, .mag-cta, .ad-explore-btn'
   );
 
   magTargets.forEach(el => {
